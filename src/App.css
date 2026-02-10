@@ -326,7 +326,7 @@ body {
 }
 
 .skill-card.highlighted {
-    outline: 3px solid #0066ff;
+    outline: 3px solid #ffd700;
     outline-offset: 2px;
 }
 
@@ -374,4 +374,42 @@ body {
     padding: 60px 20px;
     color: #999;
     font-size: 14px;
+}
+
+
+/* ========== 모바일 반응형 (가로 스크롤) ========== */
+
+@media (max-width: 768px) {
+    .app {
+        padding: 10px;
+    }
+    .class-tabs {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    .class-tab {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+    .job-selector,
+    .route-selector {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    .job-selector select,
+    .route-selector select {
+        width: 100%;
+    }
+    .tree-header {
+        min-width: 700px;
+        text-align: center;
+    }
+    .skill-tree {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .tree-level {
+        min-width: 700px;
+    }
 }
