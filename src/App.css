@@ -1,0 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #fff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.app {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+
+/* ========== 상단 직업 선택 버튼 ========== */
+
+.class-tabs {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+.class-tab {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.class-tab:hover {
+    background: #f5f5f5;
+}
+
+.class-tab.active {
+    background: #cfb9ff;
+    border-color: #cfb9ff;
+    font-weight: 700;
+}
+
+
+/* ========== 전직 선택 드롭박스 ========== */
+
+.job-selector {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.job-selector label {
+    font-size: 13px;
+    color: #666;
+}
+
+.job-selector select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 13px;
+    font-family: inherit;
+    min-width: 200px;
+    cursor: pointer;
+}
+
+
+/* ========== 추천 루트 드롭박스 ========== */
+
+.route-selector {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.route-selector label {
+    font-size: 13px;
+    color: #666;
+}
+
+.route-selector select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 13px;
+    font-family: inherit;
+    min-width: 280px;
+    cursor: pointer;
+}
+
+
+/* ========== 스킬트리 컨테이너 ========== */
+
+.skill-tree {
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+
+/* 헤더 */
+
+.tree-header {
+    background: #cfb9ff;
+    padding: 14px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+/* ========== 트리 레벨 ========== */
+
+.tree-level {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* 수직 연결선 */
+
+.vertical-line {
+    width: 1px;
+    height: 30px;
+    background: #000;
+}
+
+
+/* ========== 메인 스킬 (센터 노드) ========== */
+
+.center-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skill-node {
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 200px;
+}
+
+.skill-node.highlighted {
+    outline: 3px solid #ffd700;
+    outline-offset: 2px;
+}
+
+.skill-node .skill-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.skill-name {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
+/* 메인 스킬 설명 박스 */
+
+.skill-desc-box {
+    background: #efefef;
+    padding: 16px 20px;
+    font-size: 13px;
+    line-height: 1.7;
+    text-align: center;
+    border: 1px solid #000;
+    border-top: none;
+    width: 520px;
+}
+
+
+/* skill-node 너비를 skill-desc-box와 맞춤 */
+
+.center-node .skill-node {
+    width: 520px;
+}
+
+.skill-stat {
+    color: #4285f4;
+}
+
+
+/* ========== 분기 컨테이너 ========== */
+
+.branch-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /* 상단 연결선 공간 + 하단 연결선 공간 */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* 같은 행 카드 높이 통일 */
+    align-items: stretch;
+}
+
+
+/* 상단 가로 연결선 (퍼지는 선) */
+
+.branch-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    background: #000;
+}
+
+
+/* 하단 가로 연결선 (모이는 선) */
+
+.branch-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    background: #000;
+}
+
+
+/* 분기 아이템 */
+
+.branch-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+
+/* 분기 아이템 상단 수직선 (상단 가로선에서 카드로) */
+
+.branch-item::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 20px;
+    background: #000;
+}
+
+
+/* 분기 아이템 하단 수직선 (카드에서 하단 가로선으로) */
+
+.branch-item::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 20px;
+    background: #000;
+}
+
+
+/* ========== 2분기 레이아웃 ========== */
+
+.branch-2 {
+    gap: 60px;
+}
+
+.branch-2 .branch-item {
+    width: 240px;
+}
+
+
+/* 2분기 가로선: 두 카드 중심점 연결 */
+
+.branch-2::before,
+.branch-2::after {
+    /* 카드 너비 240px + gap 60px = 300px (중심간 거리) */
+    width: 300px;
+}
+
+
+/* ========== 3분기 레이아웃 ========== */
+
+.branch-3 {
+    gap: 30px;
+}
+
+.branch-3 .branch-item {
+    width: 220px;
+}
+
+
+/* 3분기 가로선: 양 끝 카드 중심점 연결 */
+
+.branch-3::before,
+.branch-3::after {
+    /* (카드 너비 220px + gap 30px) * 2 = 500px (양 끝 중심간 거리) */
+    width: 500px;
+}
+
+
+/* ========== 스킬 카드 ========== */
+
+.skill-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* 카드가 branch-item 높이에 맞게 늘어남 */
+    flex: 1;
+}
+
+.skill-card.highlighted {
+    outline: 3px solid #0066ff;
+    outline-offset: 2px;
+}
+
+.skill-card-header {
+    background: #000;
+    color: #fff;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.skill-card-header .skill-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.skill-card-name {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.skill-card-desc {
+    background: #efefef;
+    padding: 14px 12px;
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+    border: 1px solid #000;
+    border-top: none;
+    /* 남은 공간 채우기 */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+/* ========== 빈 상태 ========== */
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+    font-size: 14px;
+}
