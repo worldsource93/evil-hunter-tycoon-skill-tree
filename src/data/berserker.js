@@ -59,8 +59,8 @@ export const berserkerData = {
             { name: '묵직한 회오리', job: '3-3', icon: 'https://cafeptthumb-phinf.pstatic.net/MjAyNDExMTVfNjEg/MDAxNzMxNjM3MTc3MDEz.mH-i-IOCtpTGqxWMFCOq0EC5Yxf2uG0ZAafh7fKVIusg.qEnD7F1MTYKlyrhif3mf3opV7VQEhFjnsdy8mjo5tpQg.PNG/job_trait_h1_s3_03.png', desc: '싸이클론이 더 강력하게 회전한다.', stats: '싸이클론 스킬공격력 14~50% 증폭' }
         ],
         tier6: [
-            { name: '묵직한 회오리', job: 'common', icon: 'https://cafeptthumb-phinf.pstatic.net/MjAyNDExMTVfMjkz/MDAxNzMxNjY0MTg1MTcz.OpHJl6xnJvXdnIVLnEQJ2aMzloovEHM2bhKAdfLiWWgg.LCPRI8r--jZ37P4HgMpWC--xBvgV8AGZypHOPQIXzxwg.PNG/job_trait_h1_s4_03.png', desc: '지휘의 함성이 아군을 용맹히 전투에 임하게 한다.', stats: '지휘의 함성이 주변 아군에게 30초간 용맹 적용. 용맹은 아군 치명타 피해량을 13~40% 증가' },
-            { name: '용맹한 지휘관', job: 'common', icon: 'https://cafeptthumb-phinf.pstatic.net/MjAyNDExMTVfNjcg/MDAxNzMxNjY0MTkwMTQ1.noW7AB4pFDLITiBuuMGSAXKQ7iuqDT6E1n7E_zQMPAEg.bR9cD6N6hMzX1H2NoXO8qdvtV4MoOUHrNCOAoPyNsTQg.PNG/job_trait_h1_s4_04.png', desc: '지휘의 함성이 지휘관의 육체와 정신을 강화한다.', stats: '지휘의 함성 효과를 받는 동안 자신에게 행동불가 상태이상 면역 및 받는피해 11~20% 감소 효과 부여' }
+            { name: '용맹한 지휘관', job: 'common', icon: 'https://cafeptthumb-phinf.pstatic.net/MjAyNDExMTVfMjkz/MDAxNzMxNjY0MTg1MTcz.OpHJl6xnJvXdnIVLnEQJ2aMzloovEHM2bhKAdfLiWWgg.LCPRI8r--jZ37P4HgMpWC--xBvgV8AGZypHOPQIXzxwg.PNG/job_trait_h1_s4_03.png', desc: '지휘의 함성이 아군을 용맹히 전투에 임하게 한다.', stats: '지휘의 함성이 주변 아군에게 30초간 용맹 적용. 용맹은 아군 치명타 피해량을 13~40% 증가' },
+            { name: '불굴의 지휘관', job: 'common', icon: 'https://cafeptthumb-phinf.pstatic.net/MjAyNDExMTVfNjcg/MDAxNzMxNjY0MTkwMTQ1.noW7AB4pFDLITiBuuMGSAXKQ7iuqDT6E1n7E_zQMPAEg.bR9cD6N6hMzX1H2NoXO8qdvtV4MoOUHrNCOAoPyNsTQg.PNG/job_trait_h1_s4_04.png', desc: '지휘의 함성이 지휘관의 육체와 정신을 강화한다.', stats: '지휘의 함성 효과를 받는 동안 자신에게 행동불가 상태이상 면역 및 받는피해 11~20% 감소 효과 부여' }
         ]
     }
 };

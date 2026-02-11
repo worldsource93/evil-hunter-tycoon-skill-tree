@@ -19,19 +19,40 @@ const SKILL_TREES = {
 // 추천 루트 데이터
 const RECOMMENDED_ROUTES = {
     darkknight: [
-        { id: 'none', name: '선택 안함', highlights: [] },
-    ],
-    sorcerer: [
-        { id: 'none', name: '선택 안함', highlights: [] },
-    ],
-    berserker: [
-        { id: 'none', name: '선택 안함', highlights: [] },
+      { id: 'none', name: '선택 안함', highlights: [] },
+      { id: '', name: '', highlights: [] },
+      ],
+      sorcerer: [
+        { id: 'none', job: '', name: '선택안함', highlights: [] },
+        { id: 'sr-1', job: 'manalord', name: '이그컨저마로(파밍)', highlights: ['피뢰침', '전체공격력', '코멧 클러스터', '치명타 피해량', '하이 퍼밀리어', '라이트닝 오브'] },
+        { id: 'sr-2', job: 'manalord', name: '이그컨저마로(콜로)', highlights: ['피뢰침', '전체공격력', '코멧 클러스터', '받는 피해', '하이 퍼밀리어', '라이트닝 오브'] },
+        { id: 'sr-3', job: 'manalord', name: '이그일루마로(콜로)', highlights: ['피뢰침', '전체공격력', '코멧 클러스터', '받는 피해', '공포의 지배자', '오버차지'] },
+        { id: 'sr-4', job: 'oppositer', name: '닼메컨저마로(월보)', highlights: ['피뢰침', '전체공격력', '상급 저주', '치명타 피해량', '하이 퍼밀리어', '라이트닝 오브'] },
+        { id: 'sr-5', job: 'oppositer', name: '닼메닼로마로(월보)', highlights: ['피뢰침', '전체공격력', '상급 저주', '치명타 피해량', '다크 프로텍션', '라이트닝 오브'] },
+        { id: 'sr-6', job: 'oppositer', name: '앜메닼로오포(파밍)', highlights: ['아이스 쉴드', '전체공격력', '매서운 눈보라', '받는 피해', '다크 프로텍션', '포스 퓨전'] },
+      ],
+      berserker: [
+        { id: 'none', job: '', name: '선택안함', highlights: [] },
+        { id: 'bk-1', job: 'swordemperor', name: '듀얼소세소엠(월보)', highlights: ['숙련된 검술', '블레이드 댄스', '상처악화', '쐐기검'] },
+        { id: 'bk-2', job: 'swordemperor', name: '데코디트소엠(월보)', highlights: ['금지된 마검술', '데스 아머', '묵직한 회오리', '쐐기검'] },
+        { id: 'bk-3', job: 'swordemperor', name: '듀얼바바소엠(월보)', highlights: ['숙련된 검술', '블레이드 댄스', '무한한 함성', '쐐기검'] },
+        { id: 'bk-4', job: 'battlecommander', name: '듀얼소세배커(콜로)', highlights: ['숙련된 검술', '블레이드 댄스', '상처악화', '불굴의 지휘관'] },
+        { id: 'bk-5', job: 'battlecommander', name: '데코디트배커(월보)', highlights: ['금지된 마검술', '데스 아머', '묵직한 회오리', '용맹한 지휘관'] },
     ],
     ranger: [
-        { id: 'none', name: '선택 안함', highlights: [] },
-    ],
-    paladin: [
-        { id: 'none', name: '선택 안함', highlights: [] },
+        { id: 'none', job: '', name: '선택 안함', highlights: [] },
+        { id: 'rg-1', job: 'deadeye', name: '스나아케데아(월보)', highlights: ['트리플 애로우', '전체공격력', '정밀 사격', '치명타 피해량', '차원 화살', '끈질긴 복수'] },
+        { id: 'rg-2', job: 'deadeye', name: '서몬아케데아(월보)', highlights: ['트리플 애로우', '전체공격력', '엘더 피닉스', '치명타 피해량', '차원 화살', '끈질긴 복수'] },
+        { id: 'rg-3', job: 'starshooter', name: '호크민스스슈(콜로,파밍)', highlights: ['영체화', '전체공격력', '데들리 레인', '받는 피해', '수호의 찬가', '쇠약의 별'] },
+        { id: 'rg-4', job: 'starshooter', name: '호크스카스슈(파밍)', highlights: ['트리플 애로우', '전체공격력', '데들리 레인', '치명타 피해량', '수호의 찬가', '쇠약의 별'] },
+      ],
+      paladin: [
+        { id: 'none', job: '', name: '선택 안함', highlights: [] },
+        { id: 'pd-1', job: 'holyknight', name: '크루익큐홀나(콜로)', highlights: ['징벌의 빛', '전체공격력', '위기모면', '받는 피해', '영혼약탈자', '신성폭발'] },
+        { id: 'pd-2', job: 'holyknight', name: '실버익큐홀나(월보)', highlights: ['징벌의 빛', '전체공격력', '괴물학살자', '치명타 피해량', '영혼약탈자', '신성폭발'] },
+        { id: 'pd-3', job: 'holyknight', name: '다크익큐홀나(파밍)', highlights: ['징벌의 빛', '전체공격력', '어둠불꽃', '치명타 피해량', '영혼약탈자', '신성폭발'] },
+        { id: 'pd-4', job: 'highpriest', name: '크루가뎐하프(콜로)', highlights: ['눈부신 빛', '체력', '위기모면', '받는 피해', '강철태세', '생명의 빛'] },
+        { id: 'pd-5', job: 'highpriest', name: '다크익큐하프(월보)', highlights: ['징벌의 빛', '전체공격력', '어둠불꽃', '치명타 피해량', '영혼약탈자', '성화의 빛'] },
     ]
 };
 
@@ -94,7 +115,7 @@ function App() {
     const [selected3rd, setSelected3rd] = useState('all');
     const [selectedRoute, setSelectedRoute] = useState('none');
 
-    const routes = RECOMMENDED_ROUTES[selectedClass] || [];
+    const routes = RECOMMENDED_ROUTES[selectedClass].filter(d => d.job === selectedJob || d.job === '') || [];
     const currentRoute = routes.find(r => r.id === selectedRoute);
     const highlights = currentRoute?.highlights || [];
 
@@ -112,8 +133,10 @@ function App() {
 
     return (
         <div className="app">
-            {/* 우측 상단 직업 버튼 */}
+          <div>
             <img className="hits" alt="Hits" src="https://hits.sh/github.com/worldsource93.svg?view=today-total"></img>
+          </div>
+            {/* 우측 상단 직업 버튼 */}
             <div className="class-tabs">
                 {Object.entries(JOB_CONFIG).map(([key, data]) => (
                     <button
