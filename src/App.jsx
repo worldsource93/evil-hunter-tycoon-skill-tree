@@ -34,10 +34,11 @@ const RECOMMENDED_ROUTES = {
       berserker: [
         { id: 'none', job: '', name: '선택안함', highlights: [] },
         { id: 'bk-1', job: 'swordemperor', name: '듀얼소세소엠(월보)', highlights: ['숙련된 검술', '전체공격력', '블레이드 댄스', '치명타 피해량', '상처악화', '쐐기검'] },
-        { id: 'bk-2', job: 'swordemperor', name: '데코디트소엠(월보)', highlights: ['금지된 마검술', '전체공격력', '데스 아머', '치명타 피해량', '묵직한 회오리', '쐐기검'] },
-        { id: 'bk-3', job: 'swordemperor', name: '듀얼바바소엠(월보)', highlights: ['숙련된 검술', '전체공격력', '블레이드 댄스', '치명타 피해량', '무한한 함성', '쐐기검'] },
-        { id: 'bk-4', job: 'battlecommander', name: '듀얼소세배커(콜로)', highlights: ['숙련된 검술', '전체공격력', '블레이드 댄스', '받는 피해', '상처악화', '불굴의 지휘관'] },
-        { id: 'bk-5', job: 'battlecommander', name: '데코디트배커(월보)', highlights: ['금지된 마검술', '전체공격력', '데스 아머', '치명타 피해량', '묵직한 회오리', '용맹한 지휘관'] },
+        { id: 'bk-2', job: 'swordemperor', name: '데코디트소엠(월보,디트링 有)', highlights: ['금지된 마검술', '전체공격력', '데스 아머', '치명타 피해량', '묵직한 회오리'], forbiddens: ['tier6'] },
+        { id: 'bk-3', job: 'swordemperor', name: '데코디트소엠(월보,디트링 無)', highlights: ['금지된 마검술', '전체공격력', '데스 아머', '치명타 피해량', '묵직한 회오리', '쐐기검'] },
+        { id: 'bk-4', job: 'swordemperor', name: '듀얼바바소엠(월보)', highlights: ['숙련된 검술', '전체공격력', '블레이드 댄스', '치명타 피해량', '무한한 함성', '쐐기검'] },
+        { id: 'bk-5', job: 'battlecommander', name: '듀얼소세배커(콜로)', highlights: ['숙련된 검술', '전체공격력', '블레이드 댄스', '받는 피해', '상처악화', '불굴의 지휘관'] },
+        { id: 'bk-6', job: 'battlecommander', name: '데코디트배커(월보)', highlights: ['금지된 마검술', '전체공격력', '데스 아머', '치명타 피해량', '묵직한 회오리', '용맹한 지휘관'] },
     ],
     ranger: [
         { id: 'none', job: '', name: '선택 안함', highlights: [] },
@@ -86,22 +87,27 @@ function SkillCard({ skill, highlighted }) {
 }
 
 // 분기 렌더링 컴포넌트
-function BranchRow({ skills, highlights, selected2nd, selected3rd }) {
+function BranchRow({ skills, highlights, forbiddens, selected2nd, selected3rd }) {
     const filtered = skills.filter(skill => {
         if (!skill.job || skill.job === 'common') return true;
         if (selected2nd !== 'all' && skill.job.startsWith('2-') && skill.job !== selected2nd) return false;
         if (selected3rd !== 'all' && skill.job.startsWith('3-') && skill.job !== selected3rd) return false;
         return true;
     });
+
+    const isForbidden = forbiddens && forbiddens.length > 0;
     
     const count = filtered.length;
     if (count === 0) return null;
-    
     return (
-        <div className={`branch-container branch-${count}`}>
+        <div className={isForbidden ? `forbidden branch-container branch-${count}` : `branch-container branch-${count}`}>
+            {isForbidden &&
+              <div className="forbiddenBox">
+                <p>디트링을 사용 시 평타 효율이 떨어져 마지막 스킬을 찍지 않는 것을 추천드립니다.</p>
+              </div>}
             {filtered.map((skill, idx) => (
-                <div className="branch-item" key={idx}>
-                    <SkillCard skill={skill} highlighted={highlights.includes(skill.name)} />
+                <div className={isForbidden ? "branch-item blur" : "branch-item"} key={idx}>
+                    <SkillCard skill={skill} highlighted={isForbidden ? false : highlights.includes(skill.name)}  />
                 </div>
             ))}
         </div>
@@ -118,6 +124,7 @@ function App() {
     const routes = RECOMMENDED_ROUTES[selectedClass].filter(d => d.job === selectedJob || d.job === '') || [];
     const currentRoute = routes.find(r => r.id === selectedRoute);
     const highlights = currentRoute?.highlights || [];
+    const forbiddens = currentRoute?.forbiddens || [];
 
     const classConfig = JOB_CONFIG[selectedClass];
     const classJobs = classConfig?.jobs4th || [];
@@ -252,7 +259,7 @@ function App() {
                     {/* 6티어 */}
                     <div className="tree-level">
                         <div className="vertical-line"></div>
-                        <BranchRow skills={treeData.tier6} highlights={highlights} selected2nd={selected2nd} selected3rd={selected3rd} />
+                        <BranchRow skills={treeData.tier6} highlights={highlights} forbiddens={forbiddens} selected2nd={selected2nd} selected3rd={selected3rd} />
                         <div style={{height: '20px'}}></div>
                     </div>
                 </div>
