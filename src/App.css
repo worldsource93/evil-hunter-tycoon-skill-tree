@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    word-break: keep-all;
 }
 
 body {
@@ -295,6 +296,27 @@ body {
 }
 
 
+/* ========== 1분기 레이아웃 (일자) ========== */
+
+.branch-1 {
+    gap: 0;
+}
+
+.branch-1 .branch-item {
+    width: 520px;
+}
+
+.branch-1::before,
+.branch-1::after {
+    display: none;
+}
+
+.branch-1 .branch-item::before,
+.branch-1 .branch-item::after {
+    display: none;
+}
+
+
 /* ========== 3분기 레이아웃 ========== */
 
 .branch-3 {
@@ -326,7 +348,7 @@ body {
 }
 
 .skill-card.highlighted {
-    outline: 3px solid #ffd700;
+    outline: 3px solid #0066ff;
     outline-offset: 2px;
 }
 

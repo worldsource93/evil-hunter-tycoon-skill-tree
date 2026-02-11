@@ -5,23 +5,15 @@ import { sorcererData } from './data/sorcerer'
 import { berserkerData } from './data/berserker'
 import { rangerData } from './data/ranger'
 import { paladinData } from './data/paladin'
-
-// 직업 데이터
-const CLASS_DATA = {
-  berserker: { name: '버서커', jobs: ['swordemperor', 'battlecommander'] },
-  paladin: { name: '팔라딘', jobs: ['holyknight', 'highpriest'] },
-  ranger: { name: '레인져', jobs: ['deadeye', 'starshooter'] },
-  sorcerer: { name: '소서러', jobs: ['manalord', 'oppositer'] },
-  darkknight: { name: '다크나이트', jobs: ['overlord', 'deathbringer'] },
-};
+import { JOB_CONFIG } from './data/jobConfig'
 
 // 스킬트리 데이터 통합
 const SKILL_TREES = {
-    darkknight: darkknightData,
-    sorcerer: sorcererData,
     berserker: berserkerData,
+    sorcerer: sorcererData,
     ranger: rangerData,
-    paladin: paladinData
+    paladin: paladinData,
+    darkknight: darkknightData,
 };
 
 // 추천 루트 데이터
@@ -73,10 +65,20 @@ function SkillCard({ skill, highlighted }) {
 }
 
 // 분기 렌더링 컴포넌트
-function BranchRow({ skills, count, highlights }) {
+function BranchRow({ skills, highlights, selected2nd, selected3rd }) {
+    const filtered = skills.filter(skill => {
+        if (!skill.job || skill.job === 'common') return true;
+        if (selected2nd !== 'all' && skill.job.startsWith('2-') && skill.job !== selected2nd) return false;
+        if (selected3rd !== 'all' && skill.job.startsWith('3-') && skill.job !== selected3rd) return false;
+        return true;
+    });
+    
+    const count = filtered.length;
+    if (count === 0) return null;
+    
     return (
         <div className={`branch-container branch-${count}`}>
-            {skills.map((skill, idx) => (
+            {filtered.map((skill, idx) => (
                 <div className="branch-item" key={idx}>
                     <SkillCard skill={skill} highlighted={highlights.includes(skill.name)} />
                 </div>
@@ -88,18 +90,23 @@ function BranchRow({ skills, count, highlights }) {
 function App() {
     const [selectedClass, setSelectedClass] = useState('berserker');
     const [selectedJob, setSelectedJob] = useState('swordemperor');
+    const [selected2nd, setSelected2nd] = useState('all');
+    const [selected3rd, setSelected3rd] = useState('all');
     const [selectedRoute, setSelectedRoute] = useState('none');
 
     const routes = RECOMMENDED_ROUTES[selectedClass] || [];
     const currentRoute = routes.find(r => r.id === selectedRoute);
     const highlights = currentRoute?.highlights || [];
 
-    const classJobs = CLASS_DATA[selectedClass]?.jobs || [];
+    const classConfig = JOB_CONFIG[selectedClass];
+    const classJobs = classConfig?.jobs4th || [];
     const treeData = SKILL_TREES[selectedClass]?.[selectedJob];
 
     const handleClassChange = (classKey) => {
         setSelectedClass(classKey);
-        setSelectedJob(CLASS_DATA[classKey].jobs[0]);
+        setSelectedJob(JOB_CONFIG[classKey].jobs4th[0]);
+        setSelected2nd('all');
+        setSelected3rd('all');
         setSelectedRoute('none');
     };
 
@@ -107,7 +114,7 @@ function App() {
         <div className="app">
             {/* 우측 상단 직업 버튼 */}
             <div className="class-tabs">
-                {Object.entries(CLASS_DATA).map(([key, data]) => (
+                {Object.entries(JOB_CONFIG).map(([key, data]) => (
                     <button
                         key={key}
                         className={`class-tab ${selectedClass === key ? 'active' : ''}`}
@@ -118,7 +125,29 @@ function App() {
                 ))}
             </div>
 
-            {/* 전직 선택 */}
+            {/* 2차 전직 선택 */}
+            <div className="job-selector">
+                <label>2차 전직:</label>
+                <select value={selected2nd} onChange={(e) => setSelected2nd(e.target.value)}>
+                    <option value="all">전체</option>
+                    {classConfig?.jobs2nd.map(job => (
+                        <option key={job.id} value={job.id}>{job.name} ({job.skill})</option>
+                    ))}
+                </select>
+            </div>
+
+            {/* 3차 전직 선택 */}
+            <div className="job-selector">
+                <label>3차 전직:</label>
+                <select value={selected3rd} onChange={(e) => setSelected3rd(e.target.value)}>
+                    <option value="all">전체</option>
+                    {classConfig?.jobs3rd.map(job => (
+                        <option key={job.id} value={job.id}>{job.name} ({job.skill})</option>
+                    ))}
+                </select>
+            </div>
+
+            {/* 4차 전직 선택 */}
             <div className="job-selector">
                 <label>4차 전직:</label>
                 <select 
@@ -166,46 +195,46 @@ function App() {
                         </div>
                     </div>
 
-                    {/* 1티어 - 3분기 */}
+                    {/* 1티어 */}
                     <div className="tree-level">
                         <div className="vertical-line"></div>
-                        <BranchRow skills={treeData.tier1} count={3} highlights={highlights} />
+                        <BranchRow skills={treeData.tier1} highlights={highlights} selected2nd={selected2nd} selected3rd={selected3rd} />
                     </div>
 
-                    {/* 2티어 - 2분기 */}
+                    {/* 2티어 */}
                     <div className="tree-level">
                         <div className="vertical-line"></div>
-                        <BranchRow skills={treeData.tier2} count={2} highlights={highlights} />
+                        <BranchRow skills={treeData.tier2} highlights={highlights} selected2nd={selected2nd} selected3rd={selected3rd} />
                     </div>
 
-                    {/* 3티어 - 3분기 */}
+                    {/* 3티어 */}
                     <div className="tree-level">
                         <div className="vertical-line"></div>
-                        <BranchRow skills={treeData.tier3} count={3} highlights={highlights} />
+                        <BranchRow skills={treeData.tier3} highlights={highlights} selected2nd={selected2nd} selected3rd={selected3rd} />
                     </div>
 
-                    {/* 4티어 - 2분기 */}
+                    {/* 4티어 */}
                     <div className="tree-level">
                         <div className="vertical-line"></div>
-                        <BranchRow skills={treeData.tier4} count={2} highlights={highlights} />
+                        <BranchRow skills={treeData.tier4} highlights={highlights} selected2nd={selected2nd} selected3rd={selected3rd} />
                     </div>
 
-                    {/* 5티어 - 3분기 */}
+                    {/* 5티어 */}
                     <div className="tree-level">
                         <div className="vertical-line"></div>
-                        <BranchRow skills={treeData.tier5} count={3} highlights={highlights} />
+                        <BranchRow skills={treeData.tier5} highlights={highlights} selected2nd={selected2nd} selected3rd={selected3rd} />
                     </div>
 
-                    {/* 6티어 - 2분기 */}
+                    {/* 6티어 */}
                     <div className="tree-level">
                         <div className="vertical-line"></div>
-                        <BranchRow skills={treeData.tier6} count={2} highlights={highlights} />
+                        <BranchRow skills={treeData.tier6} highlights={highlights} selected2nd={selected2nd} selected3rd={selected3rd} />
                         <div style={{height: '20px'}}></div>
                     </div>
                 </div>
             ) : (
                 <div className="skill-tree">
-                    <div className="tree-header">{CLASS_DATA[selectedClass]?.name} 스킬 트리</div>
+                    <div className="tree-header">{JOB_CONFIG[selectedClass]?.name} 스킬 트리</div>
                     <div className="empty-state">
                         스킬트리 데이터 준비 중입니다.
                     </div>
