@@ -33,11 +33,11 @@ const RECOMMENDED_ROUTES = {
       ],
       berserker: [
         { id: 'none', job: '', name: '선택안함', highlights: [] },
-        { id: 'bk-1', job: 'swordemperor', name: '듀얼소세소엠(월보)', highlights: ['숙련된 검술', '블레이드 댄스', '상처악화', '쐐기검'] },
-        { id: 'bk-2', job: 'swordemperor', name: '데코디트소엠(월보)', highlights: ['금지된 마검술', '데스 아머', '묵직한 회오리', '쐐기검'] },
-        { id: 'bk-3', job: 'swordemperor', name: '듀얼바바소엠(월보)', highlights: ['숙련된 검술', '블레이드 댄스', '무한한 함성', '쐐기검'] },
-        { id: 'bk-4', job: 'battlecommander', name: '듀얼소세배커(콜로)', highlights: ['숙련된 검술', '블레이드 댄스', '상처악화', '불굴의 지휘관'] },
-        { id: 'bk-5', job: 'battlecommander', name: '데코디트배커(월보)', highlights: ['금지된 마검술', '데스 아머', '묵직한 회오리', '용맹한 지휘관'] },
+        { id: 'bk-1', job: 'swordemperor', name: '듀얼소세소엠(월보)', highlights: ['숙련된 검술', '전체공격력', '블레이드 댄스', '치명타 피해량', '상처악화', '쐐기검'] },
+        { id: 'bk-2', job: 'swordemperor', name: '데코디트소엠(월보)', highlights: ['금지된 마검술', '전체공격력', '데스 아머', '치명타 피해량', '묵직한 회오리', '쐐기검'] },
+        { id: 'bk-3', job: 'swordemperor', name: '듀얼바바소엠(월보)', highlights: ['숙련된 검술', '전체공격력', '블레이드 댄스', '치명타 피해량', '무한한 함성', '쐐기검'] },
+        { id: 'bk-4', job: 'battlecommander', name: '듀얼소세배커(콜로)', highlights: ['숙련된 검술', '전체공격력', '블레이드 댄스', '받는 피해', '상처악화', '불굴의 지휘관'] },
+        { id: 'bk-5', job: 'battlecommander', name: '데코디트배커(월보)', highlights: ['금지된 마검술', '전체공격력', '데스 아머', '치명타 피해량', '묵직한 회오리', '용맹한 지휘관'] },
     ],
     ranger: [
         { id: 'none', job: '', name: '선택 안함', highlights: [] },
