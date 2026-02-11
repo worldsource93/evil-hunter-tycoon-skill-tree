@@ -113,6 +113,7 @@ function App() {
     return (
         <div className="app">
             {/* 우측 상단 직업 버튼 */}
+            <img className="hits" alt="Hits" src="https://hits.sh/github.com/worldsource93.svg?view=today-total"></img>
             <div className="class-tabs">
                 {Object.entries(JOB_CONFIG).map(([key, data]) => (
                     <button
