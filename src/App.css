@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
     background: #fff;
     min-height: 100vh;
     padding: 20px;
@@ -215,7 +215,7 @@ body {
 /* 상단 가로 연결선 (퍼지는 선) */
 
 .branch-container::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 50%;
@@ -228,7 +228,7 @@ body {
 /* 하단 가로 연결선 (모이는 선) */
 
 .branch-container::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -251,7 +251,7 @@ body {
 /* 분기 아이템 상단 수직선 (상단 가로선에서 카드로) */
 
 .branch-item::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -20px;
     left: 50%;
@@ -265,7 +265,7 @@ body {
 /* 분기 아이템 하단 수직선 (카드에서 하단 가로선으로) */
 
 .branch-item::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -20px;
     left: 50%;
@@ -348,7 +348,7 @@ body {
 }
 
 .skill-card.highlighted {
-    outline: 3px solid #0066ff;
+    outline: 3px solid #ff0066;
     outline-offset: 2px;
 }
 
