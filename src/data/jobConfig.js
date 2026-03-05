@@ -3,6 +3,11 @@
 export const JOB_CONFIG = {
     berserker: {
         name: "버서커",
+        purposes: [
+            { id: "field", name: "필드" },
+            { id: "boss", name: "보스" },
+            { id: "pvp", name: "콜로" },
+        ],
         jobs2nd: [
             { id: "2-1", name: "듀얼리스트", skill: "듀얼웨폰" },
             { id: "2-2", name: "슬레이어", skill: "데스코일" },
@@ -17,6 +22,11 @@ export const JOB_CONFIG = {
     },
     sorcerer: {
         name: "소서러",
+        purposes: [
+            { id: "field", name: "필드" },
+            { id: "boss", name: "보스" },
+            { id: "pvp", name: "콜로" },
+        ],
         jobs2nd: [
             { id: "2-1", name: "아크메이지", skill: "블리자드" },
             { id: "2-2", name: "다크메이지", skill: "스톤커즈" },
@@ -31,6 +41,11 @@ export const JOB_CONFIG = {
     },
     ranger: {
         name: "레인져",
+        purposes: [
+            { id: "field", name: "필드" },
+            { id: "boss", name: "보스" },
+            { id: "pvp", name: "콜로" },
+        ],
         jobs2nd: [
             { id: "2-1", name: "호크아이", skill: "레인폴" },
             { id: "2-2", name: "스나이퍼", skill: "스나이핑" },
@@ -45,6 +60,11 @@ export const JOB_CONFIG = {
     },
     paladin: {
         name: "팔라딘",
+        purposes: [
+            { id: "field", name: "필드" },
+            { id: "boss", name: "보스" },
+            { id: "pvp", name: "콜로" },
+        ],
         jobs2nd: [
             { id: "2-1", name: "크루세이더", skill: "블레싱" },
             { id: "2-2", name: "템플러", skill: "실버웨폰" },
@@ -59,6 +79,11 @@ export const JOB_CONFIG = {
     },
     darkknight: {
         name: "다크나이트",
+        purposes: [
+            { id: "field", name: "필드" },
+            { id: "boss", name: "보스" },
+            { id: "pvp", name: "콜로" },
+        ],
         jobs2nd: [
             { id: "2-1", name: "둠라이더", skill: "에퀴테이션" },
             { id: "2-2", name: "쉐도우렌서", skill: "쉐도우 스트라이크" },

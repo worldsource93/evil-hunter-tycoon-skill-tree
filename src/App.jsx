@@ -22,6 +22,7 @@ const RECOMMENDED_ROUTES = {
     { id: "none", job: "", name: "선택 안함", highlights: [] },
     {
       id: "dk-1",
+      purpose: "boss",
       job: "deathbringer",
       name: "에퀴드브데브(월보)",
       highlights: [
@@ -35,8 +36,9 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "dk-2",
+      purpose: "field",
       job: "overlord",
-      name: "에퀴드브오버(파밍)",
+      name: "에퀴드브오버(필드)",
       highlights: [
         "파워 슬래쉬",
         "전체공격력",
@@ -51,8 +53,9 @@ const RECOMMENDED_ROUTES = {
     { id: "none", job: "", name: "선택안함", highlights: [] },
     {
       id: "sr-1",
+      purpose: "field",
       job: "manalord",
-      name: "이그컨저마로(파밍)",
+      name: "이그컨저마로(필드)",
       highlights: [
         "피뢰침",
         "전체공격력",
@@ -64,6 +67,7 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "sr-2",
+      purpose: "pvp",
       job: "manalord",
       name: "이그컨저마로(콜로)",
       highlights: [
@@ -77,6 +81,7 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "sr-3",
+      purpose: "pvp",
       job: "manalord",
       name: "이그일루마로(콜로)",
       highlights: [
@@ -90,6 +95,7 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "sr-4",
+      purpose: "boss",
       job: "oppositer",
       name: "닼메컨저마로(월보)",
       highlights: [
@@ -103,6 +109,7 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "sr-5",
+      purpose: "boss",
       job: "oppositer",
       name: "닼메닼로마로(월보)",
       highlights: [
@@ -116,8 +123,9 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "sr-6",
+      purpose: "field",
       job: "oppositer",
-      name: "앜메닼로오포(파밍)",
+      name: "앜메닼로오포(필드)",
       highlights: [
         "아이스 쉴드",
         "체력",
@@ -132,6 +140,7 @@ const RECOMMENDED_ROUTES = {
     { id: "none", job: "", name: "선택안함", highlights: [] },
     {
       id: "bk-1",
+      purpose: "boss",
       job: "swordemperor",
       name: "듀얼소세소엠(월보)",
       highlights: [
@@ -145,6 +154,7 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "bk-2",
+      purpose: "boss",
       job: "swordemperor",
       name: "데코디트소엠(월보,디트링 有)",
       highlights: [
@@ -158,6 +168,7 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "bk-3",
+      purpose: "boss",
       job: "swordemperor",
       name: "데코디트소엠(월보,디트링 無)",
       highlights: [
@@ -171,6 +182,7 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "bk-4",
+      purpose: "boss",
       job: "swordemperor",
       name: "듀얼바바소엠(월보)",
       highlights: [
@@ -184,6 +196,7 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "bk-5",
+      purpose: "pvp",
       job: "battlecommander",
       name: "듀얼소세배커(콜로)",
       highlights: [
@@ -197,6 +210,7 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "bk-6",
+      purpose: "boss",
       job: "battlecommander",
       name: "데코디트배커(월보)",
       highlights: [
@@ -213,6 +227,7 @@ const RECOMMENDED_ROUTES = {
     { id: "none", job: "", name: "선택 안함", highlights: [] },
     {
       id: "rg-1",
+      purpose: "boss",
       job: "deadeye",
       name: "스나아케데아(월보)",
       highlights: [
@@ -226,6 +241,7 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "rg-2",
+      purpose: "boss",
       job: "deadeye",
       name: "서몬아케데아(월보)",
       highlights: [
@@ -239,8 +255,9 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "rg-3",
+      purpose: ["field", "pvp"],
       job: "starshooter",
-      name: "호크민스스슈(콜로,파밍)",
+      name: "호크민스스슈(콜로,필드)",
       highlights: [
         "영체화",
         "전체공격력",
@@ -252,8 +269,9 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "rg-4",
+      purpose: "field",
       job: "starshooter",
-      name: "호크스카스슈(파밍)",
+      name: "호크스카스슈(필드)",
       highlights: [
         "트리플 애로우",
         "전체공격력",
@@ -268,6 +286,7 @@ const RECOMMENDED_ROUTES = {
     { id: "none", job: "", name: "선택 안함", highlights: [] },
     {
       id: "pd-1",
+      purpose: "pvp",
       job: "holyknight",
       name: "크루익큐홀나(콜로)",
       highlights: [
@@ -281,6 +300,7 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "pd-2",
+      purpose: "boss",
       job: "holyknight",
       name: "실버익큐홀나(월보)",
       highlights: [
@@ -294,8 +314,9 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "pd-3",
+      purpose: "field",
       job: "holyknight",
-      name: "다크익큐홀나(파밍)",
+      name: "다크익큐홀나(필드)",
       highlights: [
         "징벌의 빛",
         "전체공격력",
@@ -307,6 +328,7 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "pd-4",
+      purpose: "pvp",
       job: "highpriest",
       name: "크루가뎐하프(콜로)",
       highlights: [
@@ -320,6 +342,7 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "pd-5",
+      purpose: "boss",
       job: "highpriest",
       name: "다크익큐하프(월보)",
       highlights: [
@@ -333,6 +356,13 @@ const RECOMMENDED_ROUTES = {
     },
   ],
 };
+
+function isPurposeMatched(routePurpose, selectedPurpose) {
+  if (!routePurpose) return false;
+  return Array.isArray(routePurpose)
+    ? routePurpose.includes(selectedPurpose)
+    : routePurpose === selectedPurpose;
+}
 
 // 스킬 아이콘 컴포넌트
 function SkillIcon({ src }) {
@@ -421,26 +451,32 @@ function BranchRow({
 
 function App() {
   const [selectedClass, setSelectedClass] = useState("berserker");
-  const [selectedJob, setSelectedJob] = useState("swordemperor");
+  const [selectedPurpose, setSelectedPurpose] = useState(
+    JOB_CONFIG.berserker.purposes[0].id,
+  );
   const [selected2nd, setSelected2nd] = useState("all");
   const [selected3rd, setSelected3rd] = useState("all");
   const [selectedRoute, setSelectedRoute] = useState("none");
 
-  const routes =
-    RECOMMENDED_ROUTES[selectedClass].filter(
-      (d) => d.job === selectedJob || d.job === "",
-    ) || [];
+  const classConfig = JOB_CONFIG[selectedClass];
+  const classPurposes = classConfig?.purposes || [];
+  const routes = (RECOMMENDED_ROUTES[selectedClass] || []).filter(
+    (route) =>
+      route.id === "none" || isPurposeMatched(route.purpose, selectedPurpose),
+  );
   const currentRoute = routes.find((r) => r.id === selectedRoute);
   const highlights = currentRoute?.highlights || [];
   const forbiddens = currentRoute?.forbiddens || [];
-
-  const classConfig = JOB_CONFIG[selectedClass];
-  const classJobs = classConfig?.jobs4th || [];
-  const treeData = SKILL_TREES[selectedClass]?.[selectedJob];
+  const selectedJob = currentRoute?.job;
+  const shouldShowTree = selectedRoute !== "none" && Boolean(selectedJob);
+  const treeData = shouldShowTree
+    ? SKILL_TREES[selectedClass]?.[selectedJob]
+    : null;
 
   const handleClassChange = (classKey) => {
+    const defaultPurpose = JOB_CONFIG[classKey].purposes?.[0]?.id || "field";
     setSelectedClass(classKey);
-    setSelectedJob(JOB_CONFIG[classKey].jobs4th[0]);
+    setSelectedPurpose(defaultPurpose);
     setSelected2nd("all");
     setSelected3rd("all");
     setSelectedRoute("none");
@@ -469,19 +505,19 @@ function App() {
       </div>
       <div className="df">
         <div>
-          {/* 4차 전직 선택 */}
+          {/* 용도 선택 */}
           <div className="job-selector">
-            <label>4차 전직:</label>
+            <label>용도:</label>
             <select
-              value={selectedJob}
-              onChange={(e) => setSelectedJob(e.target.value)}
+              value={selectedPurpose}
+              onChange={(e) => {
+                setSelectedPurpose(e.target.value);
+                setSelectedRoute("none");
+              }}
             >
-              {classJobs.map((job) => (
-                <option key={job} value={job}>
-                  {SKILL_TREES[selectedClass]?.[job]?.name?.replace(
-                    " 영웅 스킬 트리",
-                    "",
-                  ) || job}
+              {classPurposes.map((purpose) => (
+                <option key={purpose.id} value={purpose.id}>
+                  {purpose.name}
                 </option>
               ))}
             </select>
@@ -563,7 +599,7 @@ function App() {
       </div>
 
       {/* 스킬트리 */}
-      {treeData ? (
+      {shouldShowTree && treeData ? (
         <div className="skill-tree">
           <div className="tree-header">{treeData.name}</div>
 
@@ -653,14 +689,14 @@ function App() {
             <div style={{ height: "20px" }}></div>
           </div>
         </div>
-      ) : (
+      ) : shouldShowTree ? (
         <div className="skill-tree">
           <div className="tree-header">
             {JOB_CONFIG[selectedClass]?.name} 스킬 트리
           </div>
           <div className="empty-state">스킬트리 데이터 준비 중입니다.</div>
         </div>
-      )}
+      ) : null}
     </div>
   );
 }
