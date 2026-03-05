@@ -548,7 +548,7 @@ function App() {
             </div>
             <div className="df ac">
               <p className="badge-outline">SaveWorld</p>
-              <p className="author">시앙시냥</p>
+              <p className="author">시앙시냥 촌지 미사</p>
             </div>
             <div className="df ac">
               <p className="badge-outline">꽃</p>
