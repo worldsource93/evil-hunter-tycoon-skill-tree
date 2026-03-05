@@ -544,7 +544,7 @@ function App() {
             <p className="name-card-title-helper">도움을 주신분</p>
             <div className="df ac">
               <p className="badge-outline">DreamUnion</p>
-              <p className="author">키키 포크</p>
+              <p className="author">👑포크 키키</p>
             </div>
             <div className="df ac">
               <p className="badge-outline">SaveWorld</p>
