@@ -20,7 +20,32 @@ const SKILL_TREES = {
 const RECOMMENDED_ROUTES = {
   darkknight: [
     { id: "none", name: "선택 안함", highlights: [] },
-    { id: "", name: "", highlights: [] },
+    {
+      id: "dk-1",
+      job: "deathbringer",
+      name: "에퀴드브데브(월보)",
+      highlights: [
+        "파워 슬래쉬",
+        "전체공격력",
+        "카발리 차지",
+        "받는 피해",
+        "하이퍼 플레임",
+        "커스 드링커",
+      ],
+    },
+    {
+      id: "dk-2",
+      job: "overlord",
+      name: "에퀴드브오버(파밍)",
+      highlights: [
+        "파워 슬래쉬",
+        "전체공격력",
+        "카발리 차지",
+        "받는 피해",
+        "하이퍼 플레임",
+        "다크니스 블리츠",
+      ],
+    },
   ],
   sorcerer: [
     { id: "none", job: "", name: "선택안함", highlights: [] },
