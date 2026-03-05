@@ -6,8 +6,6 @@ import { berserkerData } from "./data/berserker";
 import { rangerData } from "./data/ranger";
 import { paladinData } from "./data/paladin";
 import { JOB_CONFIG } from "./data/jobConfig";
-import helper1Image from "./assets/helper-1.png";
-import helper2Image from "./assets/helper-2.png";
 
 // 스킬트리 데이터 통합
 const SKILL_TREES = {
