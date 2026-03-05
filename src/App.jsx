@@ -469,38 +469,6 @@ function App() {
       </div>
       <div className="df">
         <div>
-          {/* 2차 전직 선택 */}
-          <div className="job-selector">
-            <label>2차 전직:</label>
-            <select
-              value={selected2nd}
-              onChange={(e) => setSelected2nd(e.target.value)}
-            >
-              <option value="all">전체</option>
-              {classConfig?.jobs2nd.map((job) => (
-                <option key={job.id} value={job.id}>
-                  {job.name} ({job.skill})
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* 3차 전직 선택 */}
-          <div className="job-selector">
-            <label>3차 전직:</label>
-            <select
-              value={selected3rd}
-              onChange={(e) => setSelected3rd(e.target.value)}
-            >
-              <option value="all">전체</option>
-              {classConfig?.jobs3rd.map((job) => (
-                <option key={job.id} value={job.id}>
-                  {job.name} ({job.skill})
-                </option>
-              ))}
-            </select>
-          </div>
-
           {/* 4차 전직 선택 */}
           <div className="job-selector">
             <label>4차 전직:</label>
@@ -533,6 +501,38 @@ function App() {
               ))}
             </select>
           </div>
+
+          {/* 2차 전직 선택 */}
+          {/* <div className="job-selector">
+            <label>2차 전직:</label>
+            <select
+              value={selected2nd}
+              onChange={(e) => setSelected2nd(e.target.value)}
+            >
+              <option value="all">전체</option>
+              {classConfig?.jobs2nd.map((job) => (
+                <option key={job.id} value={job.id}>
+                  {job.name} ({job.skill})
+                </option>
+              ))}
+            </select>
+          </div> */}
+
+          {/* 3차 전직 선택 */}
+          {/* <div className="job-selector">
+            <label>3차 전직:</label>
+            <select
+              value={selected3rd}
+              onChange={(e) => setSelected3rd(e.target.value)}
+            >
+              <option value="all">전체</option>
+              {classConfig?.jobs3rd.map((job) => (
+                <option key={job.id} value={job.id}>
+                  {job.name} ({job.skill})
+                </option>
+              ))}
+            </select>
+          </div> */}
         </div>
         <div className="df ml-auto">
           <div className="name-card-box">
