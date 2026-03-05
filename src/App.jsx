@@ -6,6 +6,8 @@ import { berserkerData } from "./data/berserker";
 import { rangerData } from "./data/ranger";
 import { paladinData } from "./data/paladin";
 import { JOB_CONFIG } from "./data/jobConfig";
+import helper1Image from "./assets/helper-1.png";
+import helper2Image from "./assets/helper-2.png";
 
 // 스킬트리 데이터 통합
 const SKILL_TREES = {
@@ -467,70 +469,95 @@ function App() {
           </button>
         ))}
       </div>
+      <div className="df">
+        <div>
+          {/* 2차 전직 선택 */}
+          <div className="job-selector">
+            <label>2차 전직:</label>
+            <select
+              value={selected2nd}
+              onChange={(e) => setSelected2nd(e.target.value)}
+            >
+              <option value="all">전체</option>
+              {classConfig?.jobs2nd.map((job) => (
+                <option key={job.id} value={job.id}>
+                  {job.name} ({job.skill})
+                </option>
+              ))}
+            </select>
+          </div>
 
-      {/* 2차 전직 선택 */}
-      <div className="job-selector">
-        <label>2차 전직:</label>
-        <select
-          value={selected2nd}
-          onChange={(e) => setSelected2nd(e.target.value)}
-        >
-          <option value="all">전체</option>
-          {classConfig?.jobs2nd.map((job) => (
-            <option key={job.id} value={job.id}>
-              {job.name} ({job.skill})
-            </option>
-          ))}
-        </select>
-      </div>
+          {/* 3차 전직 선택 */}
+          <div className="job-selector">
+            <label>3차 전직:</label>
+            <select
+              value={selected3rd}
+              onChange={(e) => setSelected3rd(e.target.value)}
+            >
+              <option value="all">전체</option>
+              {classConfig?.jobs3rd.map((job) => (
+                <option key={job.id} value={job.id}>
+                  {job.name} ({job.skill})
+                </option>
+              ))}
+            </select>
+          </div>
 
-      {/* 3차 전직 선택 */}
-      <div className="job-selector">
-        <label>3차 전직:</label>
-        <select
-          value={selected3rd}
-          onChange={(e) => setSelected3rd(e.target.value)}
-        >
-          <option value="all">전체</option>
-          {classConfig?.jobs3rd.map((job) => (
-            <option key={job.id} value={job.id}>
-              {job.name} ({job.skill})
-            </option>
-          ))}
-        </select>
-      </div>
+          {/* 4차 전직 선택 */}
+          <div className="job-selector">
+            <label>4차 전직:</label>
+            <select
+              value={selectedJob}
+              onChange={(e) => setSelectedJob(e.target.value)}
+            >
+              {classJobs.map((job) => (
+                <option key={job} value={job}>
+                  {SKILL_TREES[selectedClass]?.[job]?.name?.replace(
+                    " 영웅 스킬 트리",
+                    "",
+                  ) || job}
+                </option>
+              ))}
+            </select>
+          </div>
 
-      {/* 4차 전직 선택 */}
-      <div className="job-selector">
-        <label>4차 전직:</label>
-        <select
-          value={selectedJob}
-          onChange={(e) => setSelectedJob(e.target.value)}
-        >
-          {classJobs.map((job) => (
-            <option key={job} value={job}>
-              {SKILL_TREES[selectedClass]?.[job]?.name?.replace(
-                " 영웅 스킬 트리",
-                "",
-              ) || job}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {/* 추천 루트 드롭박스 */}
-      <div className="route-selector">
-        <label>추천 루트:</label>
-        <select
-          value={selectedRoute}
-          onChange={(e) => setSelectedRoute(e.target.value)}
-        >
-          {routes.map((route) => (
-            <option key={route.id} value={route.id}>
-              {route.name}
-            </option>
-          ))}
-        </select>
+          {/* 추천 루트 드롭박스 */}
+          <div className="route-selector">
+            <label>추천 루트:</label>
+            <select
+              value={selectedRoute}
+              onChange={(e) => setSelectedRoute(e.target.value)}
+            >
+              {routes.map((route) => (
+                <option key={route.id} value={route.id}>
+                  {route.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div className="df ml-auto">
+          <div className="name-card-box">
+            <p className="name-card-title">만든사람</p>
+            <div className="df ac">
+              <p className="badge-outline">SaveWorld</p>
+              <p className="author">Blue</p>
+            </div>
+            <p className="name-card-title-helper">도움을 주신분</p>
+            <div className="df ac">
+              <p className="badge-outline">DreamUnion</p>
+              <p className="author">키키 포크</p>
+            </div>
+            <div className="df ac">
+              <p className="badge-outline">SaveWorld</p>
+              <p className="author">시앙시냥</p>
+            </div>
+            <div className="df ac">
+              <p className="badge-outline">꽃</p>
+              <p className="author">만두꽃 헬리꽃터</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* 스킬트리 */}
