@@ -1,7 +1,7 @@
 // data/darkknight.js
 
 export const darkknightData = {
-    deathbringer: {
+    overlord: {
         name: "오버로드 영웅 스킬 트리",
         main: {
             name: "하이퍼 블리츠",
@@ -120,7 +120,7 @@ export const darkknightData = {
             },
         ],
     },
-    overlord: {
+    deathbringer: {
         name: "데스브링어 영웅 스킬 트리",
         main: {
             name: "미스틸테인",
