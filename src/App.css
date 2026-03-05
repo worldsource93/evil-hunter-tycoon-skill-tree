@@ -14,9 +14,12 @@ body {
   background: #fff;
   min-height: 100vh;
   padding: 20px;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .app {
+  width: 100%;
   max-width: 960px;
   margin: 0 auto;
 }
@@ -71,6 +74,7 @@ body {
   font-size: 13px;
   font-family: inherit;
   min-width: 200px;
+  max-width: 100%;
   cursor: pointer;
 }
 
@@ -95,6 +99,7 @@ body {
   font-size: 13px;
   font-family: inherit;
   min-width: 280px;
+  max-width: 100%;
   cursor: pointer;
 }
 
@@ -103,6 +108,9 @@ body {
 .skill-tree {
   background: #fff;
   border: 1px solid #ccc;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 /* 헤더 */
@@ -153,8 +161,8 @@ body {
 }
 
 .skill-node.highlighted {
-  outline: 3px solid #ffd700;
-  outline-offset: 2px;
+  /* outline: 3px solid #ffd700;
+  outline-offset: 2px; */
 }
 
 .skill-node .skill-icon {
@@ -330,8 +338,8 @@ body {
 }
 
 .skill-card.highlighted {
-  outline: 3px solid #ff0066;
-  outline-offset: 2px;
+  /* outline: 3px solid #ff0066;
+  outline-offset: 2px; */
 }
 
 .forbidden {
@@ -403,12 +411,31 @@ body {
 /* ========== 모바일 반응형 (가로 스크롤) ========== */
 
 @media (max-width: 768px) {
-  .app {
+  body {
     padding: 10px;
+  }
+  .app {
+    max-width: 100%;
+  }
+  .top-panel {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  .profile-panel {
+    width: 100%;
+  }
+  .ml-auto {
+    margin-left: 0;
+  }
+  .name-card-box {
+    width: 100%;
+    padding: 12px;
   }
   .class-tabs {
     flex-wrap: wrap;
     gap: 5px;
+    justify-content: flex-start;
   }
   .class-tab {
     padding: 8px 12px;
@@ -423,17 +450,79 @@ body {
   .job-selector select,
   .route-selector select {
     width: 100%;
+    min-width: 0;
+  }
+  label {
+    width: auto;
   }
   .tree-header {
-    min-width: 700px;
+    width: 100%;
+    min-width: 0;
     text-align: center;
+    padding: 12px;
   }
   .skill-tree {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
   .tree-level {
-    min-width: 700px;
+    width: 100%;
+    min-width: 0;
+  }
+  .center-node {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .skill-node,
+  .center-node .skill-node,
+  .skill-desc-box {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .skill-node {
+    padding: 10px 12px;
+  }
+  .skill-name {
+    font-size: 14px;
+  }
+  .skill-desc-box {
+    padding: 12px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .branch-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 10px;
+  }
+  .branch-container::before,
+  .branch-container::after,
+  .branch-item::before,
+  .branch-item::after {
+    display: none;
+  }
+  .branch-item,
+  .branch-1 .branch-item,
+  .branch-2 .branch-item,
+  .branch-3 .branch-item {
+    width: 100%;
+    max-width: 100%;
+  }
+  .branch-1,
+  .branch-2,
+  .branch-3 {
+    gap: 10px;
+  }
+  .forbiddenBox {
+    position: static;
+    transform: none;
+    margin-bottom: 10px;
+    font-size: 13px;
+    padding: 10px;
   }
 }
 

@@ -410,6 +410,7 @@ function BranchRow({
   forbiddens,
   selected2nd,
   selected3rd,
+  showOnlyRecommended,
 }) {
   const filtered = skills.filter((skill) => {
     if (!skill.job || skill.job === "common") return true;
@@ -428,9 +429,16 @@ function BranchRow({
     return true;
   });
 
+  const highlightedInRow = filtered.filter((skill) =>
+    highlights.includes(skill.name),
+  );
+  const collapsed =
+    showOnlyRecommended && filtered.length > 1 && highlightedInRow.length > 0
+      ? [highlightedInRow[0]]
+      : filtered;
   const isForbidden = forbiddens && forbiddens.length > 0;
 
-  const count = filtered.length;
+  const count = collapsed.length;
   if (count === 0) return null;
   return (
     <div
@@ -448,7 +456,7 @@ function BranchRow({
           </p>
         </div>
       )}
-      {filtered.map((skill, idx) => (
+      {collapsed.map((skill, idx) => (
         <div
           className={isForbidden ? "branch-item blur" : "branch-item"}
           key={idx}
@@ -517,7 +525,7 @@ function App() {
           </button>
         ))}
       </div>
-      <div className="df">
+      <div className="top-panel df">
         <div>
           {/* 용도 선택 */}
           <div className="job-selector">
@@ -584,7 +592,7 @@ function App() {
             </select>
           </div> */}
         </div>
-        <div className="df ml-auto">
+        <div className="profile-panel df ml-auto">
           <div className="name-card-box">
             <p className="name-card-title">만든사람</p>
             <div className="df ac">
@@ -643,6 +651,7 @@ function App() {
               highlights={highlights}
               selected2nd={selected2nd}
               selected3rd={selected3rd}
+              showOnlyRecommended={selectedRoute !== "none"}
             />
           </div>
 
@@ -654,6 +663,7 @@ function App() {
               highlights={highlights}
               selected2nd={selected2nd}
               selected3rd={selected3rd}
+              showOnlyRecommended={selectedRoute !== "none"}
             />
           </div>
 
@@ -665,6 +675,7 @@ function App() {
               highlights={highlights}
               selected2nd={selected2nd}
               selected3rd={selected3rd}
+              showOnlyRecommended={selectedRoute !== "none"}
             />
           </div>
 
@@ -676,6 +687,7 @@ function App() {
               highlights={highlights}
               selected2nd={selected2nd}
               selected3rd={selected3rd}
+              showOnlyRecommended={selectedRoute !== "none"}
             />
           </div>
 
@@ -687,6 +699,7 @@ function App() {
               highlights={highlights}
               selected2nd={selected2nd}
               selected3rd={selected3rd}
+              showOnlyRecommended={selectedRoute !== "none"}
             />
           </div>
 
@@ -699,6 +712,7 @@ function App() {
               forbiddens={forbiddens}
               selected2nd={selected2nd}
               selected3rd={selected3rd}
+              showOnlyRecommended={selectedRoute !== "none"}
             />
             <div style={{ height: "20px" }}></div>
           </div>
