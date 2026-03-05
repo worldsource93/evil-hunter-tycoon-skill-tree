@@ -19,7 +19,7 @@ const SKILL_TREES = {
 // 추천 루트 데이터
 const RECOMMENDED_ROUTES = {
   darkknight: [
-    { id: "none", name: "선택 안함", highlights: [] },
+    { id: "none", job: "", name: "선택 안함", highlights: [] },
     {
       id: "dk-1",
       job: "deathbringer",
