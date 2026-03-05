@@ -24,7 +24,7 @@ const RECOMMENDED_ROUTES = {
       id: "dk-1",
       purpose: "boss",
       job: "deathbringer",
-      name: "에퀴드브데브(월보)",
+      name: "에퀴드브데브(딜)",
       highlights: [
         "파워 슬래쉬",
         "전체공격력",
@@ -38,7 +38,7 @@ const RECOMMENDED_ROUTES = {
       id: "dk-2",
       purpose: "field",
       job: "overlord",
-      name: "에퀴드브오버(필드)",
+      name: "에퀴드브오버(딜)",
       highlights: [
         "파워 슬래쉬",
         "전체공격력",
@@ -55,7 +55,7 @@ const RECOMMENDED_ROUTES = {
       id: "sr-1",
       purpose: "field",
       job: "manalord",
-      name: "이그컨저마로(필드)",
+      name: "이그컨저마로(딜)",
       highlights: [
         "피뢰침",
         "전체공격력",
@@ -69,7 +69,7 @@ const RECOMMENDED_ROUTES = {
       id: "sr-2",
       purpose: "pvp",
       job: "manalord",
-      name: "이그컨저마로(콜로)",
+      name: "이그컨저마로(딜)",
       highlights: [
         "피뢰침",
         "전체공격력",
@@ -83,7 +83,7 @@ const RECOMMENDED_ROUTES = {
       id: "sr-3",
       purpose: "pvp",
       job: "manalord",
-      name: "이그일루마로(콜로)",
+      name: "이그일루마로(딜)",
       highlights: [
         "피뢰침",
         "전체공격력",
@@ -97,7 +97,7 @@ const RECOMMENDED_ROUTES = {
       id: "sr-4",
       purpose: "boss",
       job: "oppositer",
-      name: "닼메컨저마로(월보)",
+      name: "닼메컨저마로(딜)",
       highlights: [
         "피뢰침",
         "전체공격력",
@@ -111,7 +111,7 @@ const RECOMMENDED_ROUTES = {
       id: "sr-5",
       purpose: "boss",
       job: "oppositer",
-      name: "닼메닼로마로(월보)",
+      name: "닼메닼로마로(탱)",
       highlights: [
         "피뢰침",
         "전체공격력",
@@ -125,7 +125,7 @@ const RECOMMENDED_ROUTES = {
       id: "sr-6",
       purpose: "field",
       job: "oppositer",
-      name: "앜메닼로오포(필드)",
+      name: "앜메닼로오포(탱)",
       highlights: [
         "아이스 쉴드",
         "체력",
@@ -142,7 +142,7 @@ const RECOMMENDED_ROUTES = {
       id: "bk-1",
       purpose: "boss",
       job: "swordemperor",
-      name: "듀얼소세소엠(월보)",
+      name: "듀얼소세소엠(딜)",
       highlights: [
         "숙련된 검술",
         "전체공격력",
@@ -152,39 +152,39 @@ const RECOMMENDED_ROUTES = {
         "쐐기검",
       ],
     },
-    {
-      id: "bk-2",
-      purpose: "boss",
-      job: "swordemperor",
-      name: "데코디트소엠(월보,디트링 有)",
-      highlights: [
-        "금지된 마검술",
-        "전체공격력",
-        "데스 아머",
-        "치명타 피해량",
-        "묵직한 회오리",
-      ],
-      forbiddens: ["tier6"],
-    },
-    {
-      id: "bk-3",
-      purpose: "boss",
-      job: "swordemperor",
-      name: "데코디트소엠(월보,디트링 無)",
-      highlights: [
-        "금지된 마검술",
-        "전체공격력",
-        "데스 아머",
-        "치명타 피해량",
-        "묵직한 회오리",
-        "쐐기검",
-      ],
-    },
+    // {
+    //   id: "bk-2",
+    //   purpose: "boss",
+    //   job: "swordemperor",
+    //   name: "데코디트소엠(월보,디트링 有)",
+    //   highlights: [
+    //     "금지된 마검술",
+    //     "전체공격력",
+    //     "데스 아머",
+    //     "치명타 피해량",
+    //     "묵직한 회오리",
+    //   ],
+    //   forbiddens: ["tier6"],
+    // },
+    // {
+    //   id: "bk-3",
+    //   purpose: "boss",
+    //   job: "swordemperor",
+    //   name: "데코디트소엠(월보,디트링 無)",
+    //   highlights: [
+    //     "금지된 마검술",
+    //     "전체공격력",
+    //     "데스 아머",
+    //     "치명타 피해량",
+    //     "묵직한 회오리",
+    //     "쐐기검",
+    //   ],
+    // },
     {
       id: "bk-4",
       purpose: "boss",
       job: "swordemperor",
-      name: "듀얼바바소엠(월보)",
+      name: "듀얼바바소엠(딜)",
       highlights: [
         "숙련된 검술",
         "전체공격력",
@@ -198,7 +198,7 @@ const RECOMMENDED_ROUTES = {
       id: "bk-5",
       purpose: "pvp",
       job: "battlecommander",
-      name: "듀얼소세배커(콜로)",
+      name: "듀얼소세배커(딜)",
       highlights: [
         "숙련된 검술",
         "전체공격력",
@@ -210,9 +210,9 @@ const RECOMMENDED_ROUTES = {
     },
     {
       id: "bk-6",
-      purpose: "boss",
+      purpose: ["boss", "field"],
       job: "battlecommander",
-      name: "데코디트배커(월보)",
+      name: "데코디트배커(딜)",
       highlights: [
         "금지된 마검술",
         "전체공격력",
@@ -229,7 +229,7 @@ const RECOMMENDED_ROUTES = {
       id: "rg-1",
       purpose: "boss",
       job: "deadeye",
-      name: "스나아케데아(월보)",
+      name: "스나아케데아(딜)",
       highlights: [
         "트리플 애로우",
         "전체공격력",
@@ -243,7 +243,7 @@ const RECOMMENDED_ROUTES = {
       id: "rg-2",
       purpose: "boss",
       job: "deadeye",
-      name: "서몬아케데아(월보)",
+      name: "서몬아케데아(딜)",
       highlights: [
         "트리플 애로우",
         "전체공격력",
@@ -257,7 +257,7 @@ const RECOMMENDED_ROUTES = {
       id: "rg-3",
       purpose: ["field", "pvp"],
       job: "starshooter",
-      name: "호크민스스슈(콜로,필드)",
+      name: "호크민스스슈(탱)",
       highlights: [
         "영체화",
         "전체공격력",
@@ -271,7 +271,7 @@ const RECOMMENDED_ROUTES = {
       id: "rg-4",
       purpose: "field",
       job: "starshooter",
-      name: "호크스카스슈(필드)",
+      name: "호크스카스슈(딜)",
       highlights: [
         "트리플 애로우",
         "전체공격력",
@@ -288,7 +288,7 @@ const RECOMMENDED_ROUTES = {
       id: "pd-1",
       purpose: "pvp",
       job: "holyknight",
-      name: "크루익큐홀나(콜로)",
+      name: "크루익큐홀나(탱)",
       highlights: [
         "징벌의 빛",
         "전체공격력",
@@ -302,7 +302,7 @@ const RECOMMENDED_ROUTES = {
       id: "pd-2",
       purpose: "boss",
       job: "holyknight",
-      name: "실버익큐홀나(월보)",
+      name: "실버익큐홀나(딜)",
       highlights: [
         "징벌의 빛",
         "전체공격력",
@@ -316,7 +316,7 @@ const RECOMMENDED_ROUTES = {
       id: "pd-3",
       purpose: "field",
       job: "holyknight",
-      name: "다크익큐홀나(필드)",
+      name: "다크익큐홀나(딜)",
       highlights: [
         "징벌의 빛",
         "전체공격력",
@@ -330,7 +330,7 @@ const RECOMMENDED_ROUTES = {
       id: "pd-4",
       purpose: "pvp",
       job: "highpriest",
-      name: "크루가뎐하프(콜로)",
+      name: "크루가뎐하프(탱)",
       highlights: [
         "눈부신 빛",
         "체력",
@@ -344,7 +344,7 @@ const RECOMMENDED_ROUTES = {
       id: "pd-5",
       purpose: "boss",
       job: "highpriest",
-      name: "다크익큐하프(월보)",
+      name: "다크익큐하프(딜)",
       highlights: [
         "징벌의 빛",
         "전체공격력",
