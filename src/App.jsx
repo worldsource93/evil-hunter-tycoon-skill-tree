@@ -125,7 +125,7 @@ const RECOMMENDED_ROUTES = {
       id: "sr-5",
       purpose: "boss",
       job: "oppositer",
-      name: "닼메닼로오포(딜, 필수[1])",
+      name: "닼메닼로오포(딜)",
       highlights: [
         "피뢰침",
         "전체공격력",
@@ -198,7 +198,7 @@ const RECOMMENDED_ROUTES = {
       id: "bk-4",
       purpose: "boss",
       job: "swordemperor",
-      name: "듀얼바바소엠(딜, 필수[1])",
+      name: "듀얼바바소엠(딜)",
       highlights: [
         "숙련된 검술",
         "전체공격력",
@@ -226,7 +226,7 @@ const RECOMMENDED_ROUTES = {
       id: "bk-6",
       purpose: ["boss", "field"],
       job: "battlecommander",
-      name: "데코디트배커(딜, 필수[1])",
+      name: "데코디트배커(딜)",
       highlights: [
         "금지된 마검술",
         "전체공격력",
@@ -257,7 +257,7 @@ const RECOMMENDED_ROUTES = {
       id: "rg-2",
       purpose: "boss",
       job: "deadeye",
-      name: "서몬아케데아(딜, 필수[2])",
+      name: "서몬아케데아(딜)",
       highlights: [
         "트리플 애로우",
         "전체공격력",
@@ -358,7 +358,7 @@ const RECOMMENDED_ROUTES = {
       id: "pd-5",
       purpose: "boss",
       job: "highpriest",
-      name: "다크익큐하프(딜, 필수[1])",
+      name: "다크익큐하프(딜)",
       highlights: [
         "징벌의 빛",
         "전체공격력",
