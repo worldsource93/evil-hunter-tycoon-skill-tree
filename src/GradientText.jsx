@@ -7,6 +7,7 @@ const CSS = `
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 4px;
   }
 
   .ultimate-glow-bg {
