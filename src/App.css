@@ -888,3 +888,25 @@ label {
     padding: 10px;
   }
 }
+
+.rotateBtn {
+  animation-name: rotateBtn;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: linear;
+}
+
+@keyframes rotateBtn {
+  from {
+    left: 0;
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.b-500 {
+  font-weight: 500;
+}

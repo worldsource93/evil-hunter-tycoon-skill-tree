@@ -6,6 +6,7 @@ import { berserkerData } from "./data/berserker";
 import { rangerData } from "./data/ranger";
 import { paladinData } from "./data/paladin";
 import { JOB_CONFIG } from "./data/jobConfig";
+import GradientText from "./GradientText";
 
 // 스킬트리 데이터 통합
 const SKILL_TREES = {
@@ -849,7 +850,7 @@ function App() {
             </div>
             <div className="df ac">
               <p className="badge-outline">힐라</p>
-              <p className="author">山蔘</p>
+              <GradientText text="sansam" />
             </div>
             <div className="df ac">
               <p className="badge-outline">GOD</p>
@@ -857,9 +858,7 @@ function App() {
             </div>
             <div className="df ac">
               <p className="badge-outline">NEW</p>
-              <p className="author" style={{ transform: "rotate(180deg)" }}>
-                신로소
-              </p>
+              <p className="author rotateBtn">신로소</p>
             </div>
           </div>
         </div>
