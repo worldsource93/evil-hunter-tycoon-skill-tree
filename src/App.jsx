@@ -558,8 +558,9 @@ const EMPTY_GUIDE_CONTENT = {
 
 function getFallbackGuidePurpose(difficulty) {
   return (
-    GUIDE_PURPOSE_OPTIONS.find((option) => JOB_GUIDE_DATA[difficulty]?.[option.id])
-      ?.id || GUIDE_PURPOSE_OPTIONS[0].id
+    GUIDE_PURPOSE_OPTIONS.find(
+      (option) => JOB_GUIDE_DATA[difficulty]?.[option.id],
+    )?.id || GUIDE_PURPOSE_OPTIONS[0].id
   );
 }
 
@@ -694,6 +695,9 @@ function App() {
   const guideContent = hasGuideContent
     ? guideByDifficulty[guidePurpose]
     : EMPTY_GUIDE_CONTENT;
+  const guideStrategies = (guideContent.strategy || []).filter(
+    (item) => item?.title && item?.url,
+  );
   const guideLineup = (guideContent.lineup || []).filter(
     (row) => row.role || row.hunter || row.reason,
   );
@@ -983,7 +987,7 @@ function App() {
             aria-labelledby="job-guide-title"
           >
             <div className="guide-modal-header">
-              <h2 id="job-guide-title">직업 가이드 안내</h2>
+              <h2 id="job-guide-title">직업 가이드(작성중)</h2>
               <button
                 type="button"
                 className="guide-close-btn"
@@ -992,7 +996,6 @@ function App() {
                 닫기
               </button>
             </div>
-
             <div className="guide-filter-row">
               <div className="guide-filter">
                 <label htmlFor="guide-difficulty">난이도</label>
@@ -1029,9 +1032,24 @@ function App() {
                 </select>
               </div>
             </div>
-
+            {guideStrategies.length > 0 ? (
+              <div className="guide-strategy-list">
+                {guideStrategies.map((item, index) => (
+                  <button
+                    key={`${guideDifficulty}-${guidePurpose}-${item.url}-${index}`}
+                    type="button"
+                    className="guide-strategy-btn"
+                    onClick={() =>
+                      window.open(item.url, "_blank", "noopener,noreferrer")
+                    }
+                  >
+                    {item.title}
+                    {item.author ? ` · ${item.author}` : ""}
+                  </button>
+                ))}
+              </div>
+            ) : null}
             <p className="guide-message">{guideContent.message}</p>
-
             {guideLineup.length > 0 ? (
               <div className="guide-table-wrap">
                 <table className="guide-table">
@@ -1060,7 +1078,6 @@ function App() {
                 해당 조건의 헌터 구성추천표가 아직 없습니다.
               </p>
             )}
-
             <p className="guide-footnote">
               만들어 가는 단계라 정보가 부정확할 수 있습니다. 단톡방 혹은
               연합에서 컨펌받고 이륙하시기 바랍니다.
