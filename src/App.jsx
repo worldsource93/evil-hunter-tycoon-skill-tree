@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { darkknightData } from "./data/darkknight";
 import { sorcererData } from "./data/sorcerer";
@@ -371,6 +371,198 @@ const RECOMMENDED_ROUTES = {
   ],
 };
 
+const GUIDE_DIFFICULTY_OPTIONS = [
+  { id: "newbie", name: "고행이하" },
+  { id: "boost", name: "부스트" },
+  { id: "super", name: "슈퍼" },
+  { id: "chaos", name: "카오스" },
+  { id: "abyss", name: "어비스" },
+];
+
+const GUIDE_PURPOSE_OPTIONS = [
+  { id: "field", name: "필드" },
+  { id: "boss", name: "보스" },
+  { id: "pvp", name: "콜로" },
+];
+
+const JOB_GUIDE_DATA = {
+  newbie: {
+    field: {
+      message:
+        "버서커 5마리 주황공속 owner를 목표 & 안좋은 헌터를 계속 추방하여 비법서 작",
+      strategy: [
+        {
+          title: "달인~부30공략",
+          url: "https://cafe.naver.com/evilhuntertycoon/48855",
+          author: "방치신",
+        },
+      ],
+      lineup: [
+        {
+          role: "5~6",
+          hunter: "버서커",
+          reason: "공속 신경 안써도 됨",
+        },
+      ],
+    },
+    boss: {
+      message: "카오스부스터 이전 불필요",
+      strategy: [],
+      lineup: [],
+    },
+    pvp: {
+      message: "어비스부스터 이전 불필요(엘리트 리그 안내?)",
+      strategy: [],
+      lineup: [],
+    },
+  },
+  boost: {
+    field: {
+      message: "부스트는 묠니르 팔라딘(예시 이미지 첨부)",
+      strategy: [
+        {
+          title: "달인~부30공략",
+          url: "https://cafe.naver.com/evilhuntertycoon/48855",
+          author: "방치신",
+        },
+      ],
+      lineup: [
+        {
+          role: "1~2",
+          hunter: "팔라딘 - 다크팔라딘 - 인퀴 or 익큐",
+          reason: "묠니르 팔라딘 혼자 한지역 사냥가능(5신강 풀장비성장 기준)",
+        },
+        {
+          role: "1",
+          hunter: "소서러 - 아크메이지 - 다크로드",
+          reason: "묠니르 팔라딘 세팅 후 슈부 등반을 대비한 다크로드 세팅",
+        },
+        {
+          role: "多",
+          hunter: "소서러 - 이그니스 - 컨저러",
+          reason: "파밍은 컨저러 공략은 방치신",
+        },
+        {
+          role: "?",
+          hunter: "레인저 - 호크아이 - 스카우트",
+          reason: "소서러보다 파밍력 떨어짐",
+        },
+        {
+          role: "?",
+          hunter: "다크나이트 - 둠라이더 - 드래곤나이트",
+          reason: "초 신 성 은 아니고 용뚝이랑 얼창 없으니까 뺄까요?",
+        },
+      ],
+    },
+    boss: {
+      message: "카오스부스터 이전 불필요",
+      strategy: [],
+      lineup: [],
+    },
+    pvp: {
+      message: "어비스부스터 이전 불필요(엘리트 리그 안내?)",
+      strategy: [],
+      lineup: [],
+    },
+  },
+  super: {
+    field: {
+      message:
+        "슈부 ~ 어부초입까지는 다크로드 + 원딜(슈부 닼로 예시 스펙 이미지)",
+      strategy: [],
+      lineup: [
+        {
+          role: "",
+          hunter: "",
+          reason: "",
+        },
+      ],
+    },
+    boss: {
+      message: "카오스부스터 이전 불필요",
+      strategy: [],
+      lineup: [],
+    },
+    pvp: {
+      message: "어비스부스터 이전 불필요(엘리트 리그 안내?)",
+      strategy: [],
+      lineup: [],
+    },
+  },
+  chaos: {
+    field: {
+      message:
+        "슈부 ~ 어부초입까지는 다크로드 + 원딜(카부 닼로 예시 스펙 이미지)",
+      strategy: [],
+      lineup: [
+        {
+          role: "",
+          hunter: "",
+          reason: "",
+        },
+      ],
+    },
+    boss: {
+      message: "카오스부스터 30단계 필드보스 깨야 어비스부스터를 갈 수 있음",
+      strategy: [],
+      lineup: [],
+    },
+    pvp: {
+      message: "어비스부스터 이전 불필요(엘리트 리그 안내?)",
+      strategy: [],
+      lineup: [],
+    },
+  },
+  abyss: {
+    field: {
+      message: "당신의 파밍 헌터 구성을 추천해주시지 않으시겠습니까?",
+      strategy: [],
+      lineup: [
+        {
+          role: "빈둥신님",
+          hunter: "헌터구성",
+          reason: "알려줘요",
+        },
+      ],
+    },
+    boss: {
+      message: "당신의 월보 헌터 구성을 추천해주시지 않으시겠습니까?",
+      strategy: [],
+      lineup: [
+        {
+          role: "방치신님",
+          hunter: "헌터구성",
+          reason: "알려줘요",
+        },
+      ],
+    },
+    pvp: {
+      message: "당신의 콜로 헌터 구성을 추천해주시지 않으시겠습니까?",
+      strategy: [],
+      lineup: [
+        {
+          role: "신라이님",
+          hunter: "헌터구성",
+          reason: "알려줘요",
+        },
+      ],
+    },
+  },
+};
+
+const EMPTY_GUIDE_CONTENT = {
+  message: "해당 난이도/용도 조합의 가이드 데이터가 아직 없습니다.",
+  strategy: [],
+  lineup: [],
+};
+
+function getFallbackGuidePurpose(difficulty) {
+  return (
+    GUIDE_PURPOSE_OPTIONS.find((option) => JOB_GUIDE_DATA[difficulty]?.[option.id])
+      ?.id || GUIDE_PURPOSE_OPTIONS[0].id
+  );
+}
+
 function isPurposeMatched(routePurpose, selectedPurpose) {
   if (!routePurpose) return false;
   return Array.isArray(routePurpose)
@@ -476,6 +668,9 @@ function App() {
   const [selectedPurpose, setSelectedPurpose] = useState(
     JOB_CONFIG.berserker.purposes[0].id,
   );
+  const [isGuideModalOpen, setIsGuideModalOpen] = useState(false);
+  const [guideDifficulty, setGuideDifficulty] = useState("newbie");
+  const [guidePurpose, setGuidePurpose] = useState("field");
   const [selected2nd, setSelected2nd] = useState("all");
   const [selected3rd, setSelected3rd] = useState("all");
   const [selectedRoute, setSelectedRoute] = useState("none");
@@ -494,6 +689,25 @@ function App() {
   const treeData = shouldShowTree
     ? SKILL_TREES[selectedClass]?.[selectedJob]
     : null;
+  const guideByDifficulty = JOB_GUIDE_DATA[guideDifficulty] || {};
+  const hasGuideContent = Boolean(guideByDifficulty[guidePurpose]);
+  const guideContent = hasGuideContent
+    ? guideByDifficulty[guidePurpose]
+    : EMPTY_GUIDE_CONTENT;
+  const guideLineup = (guideContent.lineup || []).filter(
+    (row) => row.role || row.hunter || row.reason,
+  );
+
+  useEffect(() => {
+    if (!isGuideModalOpen) return undefined;
+
+    const onKeydown = (event) => {
+      if (event.key === "Escape") setIsGuideModalOpen(false);
+    };
+
+    window.addEventListener("keydown", onKeydown);
+    return () => window.removeEventListener("keydown", onKeydown);
+  }, [isGuideModalOpen]);
 
   const handleClassChange = (classKey) => {
     const defaultPurpose = JOB_CONFIG[classKey].purposes?.[0]?.id || "field";
@@ -504,9 +718,17 @@ function App() {
     setSelectedRoute("none");
   };
 
+  const openGuideModal = () => {
+    const initialPurpose = JOB_GUIDE_DATA[guideDifficulty]?.[selectedPurpose]
+      ? selectedPurpose
+      : getFallbackGuidePurpose(guideDifficulty);
+    setGuidePurpose(initialPurpose);
+    setIsGuideModalOpen(true);
+  };
+
   return (
     <div className="app">
-      <div>
+      <div className="df ac h-80">
         <img
           className="hits"
           alt="Hits"
@@ -515,15 +737,24 @@ function App() {
       </div>
       {/* 우측 상단 직업 버튼 */}
       <div className="class-tabs">
-        {Object.entries(JOB_CONFIG).map(([key, data]) => (
-          <button
-            key={key}
-            className={`class-tab ${selectedClass === key ? "active" : ""}`}
-            onClick={() => handleClassChange(key)}
-          >
-            {data.name}
-          </button>
-        ))}
+        <button
+          type="button"
+          className="job-guide-btn"
+          onClick={openGuideModal}
+        >
+          직업 가이드
+        </button>
+        <div className="ml-auto">
+          {Object.entries(JOB_CONFIG).map(([key, data]) => (
+            <button
+              key={key}
+              className={`class-tab ${selectedClass === key ? "active" : ""}`}
+              onClick={() => handleClassChange(key)}
+            >
+              {data.name}
+            </button>
+          ))}
+        </div>
       </div>
       <div className="top-panel df">
         <div>
@@ -599,22 +830,32 @@ function App() {
               <p className="badge-outline">SaveWorld</p>
               <p className="author">Blue</p>
             </div>
-            <p className="name-card-title-helper">도움을 주신분</p>
+            <p className="name-card-title-helper">도움을 주신분 😇</p>
             <div className="df ac">
               <p className="badge-outline">DreamUnion</p>
-              <p className="author">👑포크 키키</p>
+              <p className="author">👑포크 키키 촌지</p>
             </div>
             <div className="df ac">
               <p className="badge-outline">SaveWorld</p>
-              <p className="author">시앙시냥 촌지 미사</p>
+              <p className="author">시앙시냥 미사</p>
             </div>
             <div className="df ac">
-              <p className="badge-outline">꽃</p>
-              <p className="author">만두꽃 헬리꽃터</p>
+              <p className="badge-outline">🌸</p>
+              <p className="author">만두꽃 헬리꽃터 사과맛꽃</p>
             </div>
             <div className="df ac">
               <p className="badge-outline">힐라</p>
-              <p className="author">산삼</p>
+              <p className="author">山蔘</p>
+            </div>
+            <div className="df ac">
+              <p className="badge-outline">GOD</p>
+              <p className="author">방치신</p>
+            </div>
+            <div className="df ac">
+              <p className="badge-outline">NEW</p>
+              <p className="author" style={{ transform: "rotate(180deg)" }}>
+                신로소
+              </p>
             </div>
           </div>
         </div>
@@ -723,6 +964,108 @@ function App() {
             {JOB_CONFIG[selectedClass]?.name} 스킬 트리
           </div>
           <div className="empty-state">스킬트리 데이터 준비 중입니다.</div>
+        </div>
+      ) : null}
+
+      {isGuideModalOpen ? (
+        <div
+          className="guide-modal-backdrop"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) {
+              setIsGuideModalOpen(false);
+            }
+          }}
+        >
+          <div
+            className="guide-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="job-guide-title"
+          >
+            <div className="guide-modal-header">
+              <h2 id="job-guide-title">직업 가이드 안내</h2>
+              <button
+                type="button"
+                className="guide-close-btn"
+                onClick={() => setIsGuideModalOpen(false)}
+              >
+                닫기
+              </button>
+            </div>
+
+            <div className="guide-filter-row">
+              <div className="guide-filter">
+                <label htmlFor="guide-difficulty">난이도</label>
+                <select
+                  id="guide-difficulty"
+                  value={guideDifficulty}
+                  onChange={(event) => {
+                    const nextDifficulty = event.target.value;
+                    setGuideDifficulty(nextDifficulty);
+                    if (!JOB_GUIDE_DATA[nextDifficulty]?.[guidePurpose]) {
+                      setGuidePurpose(getFallbackGuidePurpose(nextDifficulty));
+                    }
+                  }}
+                >
+                  {GUIDE_DIFFICULTY_OPTIONS.map((option) => (
+                    <option key={option.id} value={option.id}>
+                      {option.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="guide-filter">
+                <label htmlFor="guide-purpose">용도</label>
+                <select
+                  id="guide-purpose"
+                  value={guidePurpose}
+                  onChange={(event) => setGuidePurpose(event.target.value)}
+                >
+                  {GUIDE_PURPOSE_OPTIONS.map((option) => (
+                    <option key={option.id} value={option.id}>
+                      {option.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <p className="guide-message">{guideContent.message}</p>
+
+            {guideLineup.length > 0 ? (
+              <div className="guide-table-wrap">
+                <table className="guide-table">
+                  <thead>
+                    <tr>
+                      <th>추천 구성(명)</th>
+                      <th>헌터</th>
+                      <th>이유</th>
+                    </tr>
+                  </thead>
+                  <tbody key={`${guideDifficulty}-${guidePurpose}`}>
+                    {guideLineup.map((row, index) => (
+                      <tr
+                        key={`${guideDifficulty}-${guidePurpose}-${index}-${row.role || "row"}`}
+                      >
+                        <td>{row.role}</td>
+                        <td>{row.hunter}</td>
+                        <td>{row.reason}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <p className="guide-empty">
+                해당 조건의 헌터 구성추천표가 아직 없습니다.
+              </p>
+            )}
+
+            <p className="guide-footnote">
+              만들어 가는 단계라 정보가 부정확할 수 있습니다. 단톡방 혹은
+              연합에서 컨펌받고 이륙하시기 바랍니다.
+            </p>
+          </div>
         </div>
       ) : null}
     </div>
