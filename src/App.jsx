@@ -84,11 +84,11 @@ const RECOMMENDED_ROUTES = {
       id: "sr-2",
       purpose: "pvp",
       job: "manalord",
-      name: "이그컨저마로(딜)",
+      name: "앜메컨저마로(딜)",
       highlights: [
         "피뢰침",
         "전체공격력",
-        "코멧 클러스터",
+        "매서운 눈보라",
         "받는 피해",
         "하이 퍼밀리어",
         "라이트닝 오브",
@@ -742,13 +742,13 @@ function App() {
       </div>
       {/* 우측 상단 직업 버튼 */}
       <div className="class-tabs">
-        {/* <button
+        <button
           type="button"
           className="job-guide-btn"
           onClick={openGuideModal}
         >
           직업 가이드
-        </button> */}
+        </button>
         <div className="ml-auto">
           {Object.entries(JOB_CONFIG).map(([key, data]) => (
             <button
