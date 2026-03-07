@@ -847,7 +847,9 @@ function App() {
             </div>
             <div className="df ac">
               <p className="badge-outline">🌸</p>
-              <p className="author">만두꽃 헬리꽃터 사과맛꽃</p>
+              <p className="author">만두꽃</p>
+              <p className="author rotateXBtn">헬리꽃터</p>
+              <p className="author">사과맛꽃</p>
             </div>
             <div className="df ac">
               <p className="badge-outline">힐라</p>

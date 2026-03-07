@@ -907,6 +907,24 @@ label {
   }
 }
 
+.rotateXBtn {
+  animation-name: rotateX;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: linear;
+}
+
+@keyframes rotateX {
+  from {
+    left: 0;
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
 .b-500 {
   font-weight: 500;
 }
