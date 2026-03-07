@@ -742,13 +742,13 @@ function App() {
       </div>
       {/* 우측 상단 직업 버튼 */}
       <div className="class-tabs">
-        <button
+        {/* <button
           type="button"
           className="job-guide-btn"
           onClick={openGuideModal}
         >
           직업 가이드
-        </button>
+        </button> */}
         <div className="ml-auto">
           {Object.entries(JOB_CONFIG).map(([key, data]) => (
             <button
