@@ -907,7 +907,7 @@ label {
   }
 }
 
-.rotateXBtn {
+.rotateX {
   animation-name: rotateX;
   animation-duration: 0.2s;
   animation-iteration-count: infinite;

@@ -848,7 +848,7 @@ function App() {
             <div className="df ac">
               <p className="badge-outline">🌸</p>
               <p className="author">만두꽃</p>
-              <p className="author rotateXBtn">헬리꽃터</p>
+              <p className="author rotateX">헬리꽃터</p>
               <p className="author">사과맛꽃</p>
             </div>
             <div className="df ac">
@@ -858,6 +858,7 @@ function App() {
             <div className="df ac">
               <p className="badge-outline">GOD</p>
               <p className="author">방치신</p>
+              <p className="author">빈둥신</p>
             </div>
             <div className="df ac" style={{ perspective: "400px" }}>
               <p className="badge-outline">NEW</p>
