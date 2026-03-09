@@ -864,6 +864,10 @@ function App() {
               <p className="badge-outline">NEW</p>
               <p className="author rotateBtn">신로소</p>
             </div>
+            <div className="df ac" style={{ perspective: "400px" }}>
+              <p className="badge-outline">벨싸</p>
+              <p className="author">리처드벨</p>
+            </div>
           </div>
         </div>
       </div>
