@@ -104,6 +104,23 @@ body {
   cursor: pointer;
 }
 
+.tree-toggle-btn {
+  appearance: none;
+  border: 1px solid #cfb9ff;
+  background: #f5efff;
+  color: #4c2f88;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  line-height: 1.2;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tree-toggle-btn:hover {
+  background: #ebddff;
+}
+
 /* ========== 스킬트리 컨테이너 ========== */
 
 .skill-tree {
@@ -339,8 +356,8 @@ body {
 }
 
 .skill-card.highlighted {
-  /* outline: 3px solid #ff0066;
-  outline-offset: 2px; */
+  outline: 3px solid #ff0066;
+  outline-offset: 2px;
 }
 
 .forbidden {
@@ -452,6 +469,9 @@ body {
   .route-selector select {
     width: 100%;
     min-width: 0;
+  }
+  .tree-toggle-btn {
+    width: 100%;
   }
   label {
     width: auto;

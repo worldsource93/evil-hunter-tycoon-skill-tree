@@ -657,7 +657,11 @@ function BranchRow({
         >
           <SkillCard
             skill={skill}
-            highlighted={isForbidden ? false : highlights.includes(skill.name)}
+            highlighted={
+              isForbidden
+                ? false
+                : !showOnlyRecommended && highlights.includes(skill.name)
+            }
           />
         </div>
       ))}
@@ -676,6 +680,7 @@ function App() {
   const [selected2nd, setSelected2nd] = useState("all");
   const [selected3rd, setSelected3rd] = useState("all");
   const [selectedRoute, setSelectedRoute] = useState("none");
+  const [showFullTree, setShowFullTree] = useState(false);
 
   const classConfig = JOB_CONFIG[selectedClass];
   const classPurposes = classConfig?.purposes || [];
@@ -688,6 +693,7 @@ function App() {
   const forbiddens = currentRoute?.forbiddens || [];
   const selectedJob = currentRoute?.job;
   const shouldShowTree = selectedRoute !== "none" && Boolean(selectedJob);
+  const showOnlyRecommended = shouldShowTree && !showFullTree;
   const treeData = shouldShowTree
     ? SKILL_TREES[selectedClass]?.[selectedJob]
     : null;
@@ -721,6 +727,7 @@ function App() {
     setSelected2nd("all");
     setSelected3rd("all");
     setSelectedRoute("none");
+    setShowFullTree(false);
   };
 
   const openGuideModal = () => {
@@ -771,6 +778,7 @@ function App() {
               onChange={(e) => {
                 setSelectedPurpose(e.target.value);
                 setSelectedRoute("none");
+                setShowFullTree(false);
               }}
             >
               {classPurposes.map((purpose) => (
@@ -786,7 +794,10 @@ function App() {
             <label>추천 루트:</label>
             <select
               value={selectedRoute}
-              onChange={(e) => setSelectedRoute(e.target.value)}
+              onChange={(e) => {
+                setSelectedRoute(e.target.value);
+                setShowFullTree(false);
+              }}
             >
               {routes.map((route) => (
                 <option key={route.id} value={route.id}>
@@ -794,6 +805,15 @@ function App() {
                 </option>
               ))}
             </select>
+            {shouldShowTree ? (
+              <button
+                type="button"
+                className="tree-toggle-btn"
+                onClick={() => setShowFullTree((prev) => !prev)}
+              >
+                {showFullTree ? "추천 트리만 보기" : "전체 스킬트리 보기"}
+              </button>
+            ) : null}
           </div>
 
           {/* 2차 전직 선택 */}
@@ -882,7 +902,7 @@ function App() {
             <div className="vertical-line"></div>
             <div className="center-node">
               <div
-                className={`skill-node ${highlights.includes(treeData.main.name) ? "highlighted" : ""}`}
+                className={`skill-node ${!showOnlyRecommended && highlights.includes(treeData.main.name) ? "highlighted" : ""}`}
               >
                 <SkillIcon src={treeData.main.icon} />
                 <span className="skill-name">{treeData.main.name}</span>
@@ -903,7 +923,7 @@ function App() {
               highlights={highlights}
               selected2nd={selected2nd}
               selected3rd={selected3rd}
-              showOnlyRecommended={selectedRoute !== "none"}
+              showOnlyRecommended={showOnlyRecommended}
             />
           </div>
 
@@ -915,7 +935,7 @@ function App() {
               highlights={highlights}
               selected2nd={selected2nd}
               selected3rd={selected3rd}
-              showOnlyRecommended={selectedRoute !== "none"}
+              showOnlyRecommended={showOnlyRecommended}
             />
           </div>
 
@@ -927,7 +947,7 @@ function App() {
               highlights={highlights}
               selected2nd={selected2nd}
               selected3rd={selected3rd}
-              showOnlyRecommended={selectedRoute !== "none"}
+              showOnlyRecommended={showOnlyRecommended}
             />
           </div>
 
@@ -939,7 +959,7 @@ function App() {
               highlights={highlights}
               selected2nd={selected2nd}
               selected3rd={selected3rd}
-              showOnlyRecommended={selectedRoute !== "none"}
+              showOnlyRecommended={showOnlyRecommended}
             />
           </div>
 
@@ -951,7 +971,7 @@ function App() {
               highlights={highlights}
               selected2nd={selected2nd}
               selected3rd={selected3rd}
-              showOnlyRecommended={selectedRoute !== "none"}
+              showOnlyRecommended={showOnlyRecommended}
             />
           </div>
 
@@ -964,7 +984,7 @@ function App() {
               forbiddens={forbiddens}
               selected2nd={selected2nd}
               selected3rd={selected3rd}
-              showOnlyRecommended={selectedRoute !== "none"}
+              showOnlyRecommended={showOnlyRecommended}
             />
             <div style={{ height: "20px" }}></div>
           </div>
