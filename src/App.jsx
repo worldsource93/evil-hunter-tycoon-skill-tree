@@ -7,6 +7,7 @@ import { rangerData } from "./data/ranger";
 import { paladinData } from "./data/paladin";
 import { JOB_CONFIG } from "./data/jobConfig";
 import GradientText from "./GradientText";
+import RetiredRipText from "./RetiredRipText";
 
 // 스킬트리 데이터 통합
 const SKILL_TREES = {
@@ -852,18 +853,19 @@ function App() {
           <div className="name-card-box">
             <p className="name-card-title">만든사람</p>
             <div className="df ac">
-              <p className="badge-outline">SaveWorld</p>
+              <p className="badge-outline">DreamUnion</p>
               <p className="author">Blue</p>
             </div>
             <p className="name-card-title-helper">도움을 주신분 😇</p>
             <div className="df ac">
               <p className="badge-outline">DreamUnion</p>
               <GradientText text="포크" />
-              <p className="author">키키 촌지</p>
+              <p className="author rotateReverseBtn">ㅋㅋ</p>
+              <p className="author">촌지 시앙시냥</p>
             </div>
             <div className="df ac">
               <p className="badge-outline">SaveWorld</p>
-              <p className="author">시앙시냥 미사</p>
+              <p className="author">미사</p>
             </div>
             <div className="df ac">
               <p className="badge-outline">🌸</p>
@@ -886,7 +888,7 @@ function App() {
             </div>
             <div className="df ac" style={{ perspective: "400px" }}>
               <p className="badge-outline">벨싸</p>
-              <p className="author">리처드벨</p>
+              <RetiredRipText text="리처드벨" />
             </div>
           </div>
         </div>

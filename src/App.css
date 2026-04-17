@@ -1,950 +1,988 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  word-break: keep-all;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    word-break: keep-all;
 }
 
 body {
-  font-family:
-    "Noto Sans KR",
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
-  background: #fff;
-  min-height: 100vh;
-  padding: 20px;
-  width: 100%;
-  overflow-x: hidden;
+    font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #fff;
+    min-height: 100vh;
+    padding: 20px;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .app {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
 }
+
 
 /* ========== 상단 직업 선택 버튼 ========== */
 
 .class-tabs {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  margin-top: 12px;
-  margin-bottom: 16px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 16px;
 }
 
 .class-tab {
-  padding: 8px 16px;
-  border: 1px solid #ddd;
-  background: #fff;
-  font-size: 13px;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.2s;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
 .class-tab:hover {
-  background: #f5f5f5;
+    background: #f5f5f5;
 }
 
 .class-tab.active {
-  background: #cfb9ff;
-  border-color: #cfb9ff;
-  font-weight: 700;
+    background: #cfb9ff;
+    border-color: #cfb9ff;
+    font-weight: 700;
 }
+
 
 /* ========== 전직 선택 드롭박스 ========== */
 
 .job-selector {
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .job-selector label {
-  font-size: 13px;
-  color: #666;
+    font-size: 13px;
+    color: #666;
 }
 
 .job-selector select {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  background: #fff;
-  font-size: 13px;
-  font-family: inherit;
-  min-width: 200px;
-  max-width: 100%;
-  cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 13px;
+    font-family: inherit;
+    min-width: 200px;
+    max-width: 100%;
+    cursor: pointer;
 }
+
 
 /* ========== 추천 루트 드롭박스 ========== */
 
 .route-selector {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .route-selector label {
-  font-size: 13px;
-  color: #666;
+    font-size: 13px;
+    color: #666;
 }
 
 .route-selector select {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  background: #fff;
-  font-size: 13px;
-  font-family: inherit;
-  min-width: 280px;
-  max-width: 100%;
-  cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 13px;
+    font-family: inherit;
+    min-width: 280px;
+    max-width: 100%;
+    cursor: pointer;
 }
 
 .tree-toggle-btn {
-  appearance: none;
-  border: 1px solid #cfb9ff;
-  background: #f5efff;
-  color: #4c2f88;
-  border-radius: 6px;
-  padding: 8px 12px;
-  font-size: 12px;
-  line-height: 1.2;
-  cursor: pointer;
-  white-space: nowrap;
+    appearance: none;
+    border: 1px solid #cfb9ff;
+    background: #f5efff;
+    color: #4c2f88;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 12px;
+    line-height: 1.2;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
 .tree-toggle-btn:hover {
-  background: #ebddff;
+    background: #ebddff;
 }
+
 
 /* ========== 스킬트리 컨테이너 ========== */
 
 .skill-tree {
-  background: #fff;
-  border: 1px solid #ccc;
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
+    background: #fff;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
+
 
 /* 헤더 */
 
 .tree-header {
-  background: #cfb9ff;
-  padding: 14px 20px;
-  font-weight: 700;
-  font-size: 14px;
-  text-align: center;
+    background: #cfb9ff;
+    padding: 14px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
 }
+
 
 /* ========== 트리 레벨 ========== */
 
 .tree-level {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 
 /* 수직 연결선 */
 
 .vertical-line {
-  width: 1px;
-  height: 30px;
-  background: #000;
+    width: 1px;
+    height: 30px;
+    background: #000;
 }
+
 
 /* ========== 메인 스킬 (센터 노드) ========== */
 
 .center-node {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .skill-node {
-  background: #000;
-  color: #fff;
-  padding: 10px 20px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-width: 200px;
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 200px;
 }
 
 .skill-node.highlighted {
-  /* outline: 3px solid #ffd700;
+    /* outline: 3px solid #ffd700;
   outline-offset: 2px; */
 }
 
 .skill-node .skill-icon {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
 }
 
 .skill-name {
-  font-size: 15px;
-  font-weight: 700;
+    font-size: 15px;
+    font-weight: 700;
 }
+
 
 /* 메인 스킬 설명 박스 */
 
 .skill-desc-box {
-  background: #efefef;
-  padding: 16px 20px;
-  font-size: 13px;
-  line-height: 1.7;
-  text-align: center;
-  border: 1px solid #000;
-  border-top: none;
-  width: 520px;
+    background: #efefef;
+    padding: 16px 20px;
+    font-size: 13px;
+    line-height: 1.7;
+    text-align: center;
+    border: 1px solid #000;
+    border-top: none;
+    width: 520px;
 }
+
 
 /* skill-node 너비를 skill-desc-box와 맞춤 */
 
 .center-node .skill-node {
-  width: 520px;
+    width: 520px;
 }
 
 .skill-stat {
-  color: #4285f4;
+    color: #4285f4;
 }
+
 
 /* ========== 분기 컨테이너 ========== */
 
 .branch-container {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  /* 상단 연결선 공간 + 하단 연결선 공간 */
-  padding-top: 20px;
-  padding-bottom: 20px;
-  /* 같은 행 카드 높이 통일 */
-  align-items: stretch;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /* 상단 연결선 공간 + 하단 연결선 공간 */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* 같은 행 카드 높이 통일 */
+    align-items: stretch;
 }
+
 
 /* 상단 가로 연결선 (퍼지는 선) */
 
 .branch-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 1px;
-  background: #000;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    background: #000;
 }
+
 
 /* 하단 가로 연결선 (모이는 선) */
 
 .branch-container::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 1px;
-  background: #000;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    background: #000;
 }
+
 
 /* 분기 아이템 */
 
 .branch-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
+
 
 /* 분기 아이템 상단 수직선 (상단 가로선에서 카드로) */
 
 .branch-item::before {
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1px;
-  height: 20px;
-  background: #000;
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 20px;
+    background: #000;
 }
+
 
 /* 분기 아이템 하단 수직선 (카드에서 하단 가로선으로) */
 
 .branch-item::after {
-  content: "";
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1px;
-  height: 20px;
-  background: #000;
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 20px;
+    background: #000;
 }
+
 
 /* ========== 2분기 레이아웃 ========== */
 
 .branch-2 {
-  gap: 60px;
+    gap: 60px;
 }
 
 .branch-2 .branch-item {
-  width: 240px;
+    width: 240px;
 }
+
 
 /* 2분기 가로선: 두 카드 중심점 연결 */
 
 .branch-2::before,
 .branch-2::after {
-  /* 카드 너비 240px + gap 60px = 300px (중심간 거리) */
-  width: 300px;
+    /* 카드 너비 240px + gap 60px = 300px (중심간 거리) */
+    width: 300px;
 }
+
 
 /* ========== 1분기 레이아웃 (일자) ========== */
 
 .branch-1 {
-  gap: 0;
+    gap: 0;
 }
 
 .branch-1 .branch-item {
-  width: 520px;
+    width: 520px;
 }
 
 .branch-1::before,
 .branch-1::after {
-  display: none;
+    display: none;
 }
 
 .branch-1 .branch-item::before,
 .branch-1 .branch-item::after {
-  display: none;
+    display: none;
 }
+
 
 /* ========== 3분기 레이아웃 ========== */
 
 .branch-3 {
-  gap: 30px;
+    gap: 30px;
 }
 
 .branch-3 .branch-item {
-  width: 220px;
+    width: 220px;
 }
+
 
 /* 3분기 가로선: 양 끝 카드 중심점 연결 */
 
 .branch-3::before,
 .branch-3::after {
-  /* (카드 너비 220px + gap 30px) * 2 = 500px (양 끝 중심간 거리) */
-  width: 500px;
+    /* (카드 너비 220px + gap 30px) * 2 = 500px (양 끝 중심간 거리) */
+    width: 500px;
 }
+
 
 /* ========== 스킬 카드 ========== */
 
 .skill-card {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  /* 카드가 branch-item 높이에 맞게 늘어남 */
-  flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* 카드가 branch-item 높이에 맞게 늘어남 */
+    flex: 1;
 }
 
 .skill-card.highlighted {
-  outline: 3px solid #ff0066;
-  outline-offset: 2px;
+    outline: 3px solid #ff0066;
+    outline-offset: 2px;
 }
 
 .forbidden {
-  outline: 3px solid #ff0066;
-  outline-offset: 2px;
-  position: relative;
+    outline: 3px solid #ff0066;
+    outline-offset: 2px;
+    position: relative;
 }
 
 .forbiddenBox {
-  position: absolute;
-  z-index: 1000000;
-  padding: 16px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-  transform: translateY(50%);
+    position: absolute;
+    z-index: 1000000;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    transform: translateY(50%);
 }
 
 .blur {
-  filter: blur(2px);
+    filter: blur(2px);
 }
 
 .skill-card-header {
-  background: #000;
-  color: #fff;
-  padding: 10px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+    background: #000;
+    color: #fff;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .skill-card-header .skill-icon {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
 }
 
 .skill-card-name {
-  font-size: 14px;
-  font-weight: 700;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .skill-card-desc {
-  background: #efefef;
-  padding: 14px 12px;
-  font-size: 12px;
-  line-height: 1.6;
-  text-align: center;
-  border: 1px solid #000;
-  border-top: none;
-  /* 남은 공간 채우기 */
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+    background: #efefef;
+    padding: 14px 12px;
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+    border: 1px solid #000;
+    border-top: none;
+    /* 남은 공간 채우기 */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
+
 
 /* ========== 빈 상태 ========== */
 
 .empty-state {
-  text-align: center;
-  padding: 60px 20px;
-  color: #999;
-  font-size: 14px;
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+    font-size: 14px;
 }
+
 
 /* ========== 모바일 반응형 (가로 스크롤) ========== */
 
 @media (max-width: 768px) {
-  body {
-    padding: 10px;
-  }
-  .app {
-    max-width: 100%;
-  }
-  .top-panel {
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-  }
-  .profile-panel {
-    width: 100%;
-  }
-  .ml-auto {
-    margin-left: 0;
-  }
-  .name-card-box {
-    width: 100%;
-    padding: 12px;
-  }
-  .class-tabs {
-    flex-wrap: wrap;
-    gap: 5px;
-    justify-content: flex-start;
-  }
-  .class-tab {
-    padding: 8px 12px;
-    font-size: 12px;
-  }
-  .job-selector,
-  .route-selector {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-  }
-  .job-selector select,
-  .route-selector select {
-    width: 100%;
-    min-width: 0;
-  }
-  .tree-toggle-btn {
-    width: 100%;
-  }
-  label {
-    width: auto;
-  }
-  .tree-header {
-    width: 100%;
-    min-width: 0;
-    text-align: center;
-    padding: 12px;
-  }
-  .skill-tree {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-  }
-  .tree-level {
-    width: 100%;
-    min-width: 0;
-  }
-  .center-node {
-    width: 100%;
-    padding: 0 10px;
-  }
-  .skill-node,
-  .center-node .skill-node,
-  .skill-desc-box {
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-  }
-  .skill-node {
-    padding: 10px 12px;
-  }
-  .skill-name {
-    font-size: 14px;
-  }
-  .skill-desc-box {
-    padding: 12px;
-    font-size: 12px;
-    line-height: 1.6;
-  }
-  .branch-container {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-    width: 100%;
-    padding: 12px 10px;
-  }
-  .branch-container::before,
-  .branch-container::after,
-  .branch-item::before,
-  .branch-item::after {
-    display: none;
-  }
-  .branch-item,
-  .branch-1 .branch-item,
-  .branch-2 .branch-item,
-  .branch-3 .branch-item {
-    width: 100%;
-    max-width: 100%;
-  }
-  .branch-1,
-  .branch-2,
-  .branch-3 {
-    gap: 10px;
-  }
-  .forbiddenBox {
-    position: static;
-    transform: none;
-    margin-bottom: 10px;
-    font-size: 13px;
-    padding: 10px;
-  }
+    body {
+        padding: 10px;
+    }
+    .app {
+        max-width: 100%;
+    }
+    .top-panel {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+    .profile-panel {
+        width: 100%;
+    }
+    .ml-auto {
+        margin-left: 0;
+    }
+    .name-card-box {
+        width: 100%;
+        padding: 12px;
+    }
+    .class-tabs {
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: flex-start;
+    }
+    .class-tab {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+    .job-selector,
+    .route-selector {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    .job-selector select,
+    .route-selector select {
+        width: 100%;
+        min-width: 0;
+    }
+    .tree-toggle-btn {
+        width: 100%;
+    }
+    label {
+        width: auto;
+    }
+    .tree-header {
+        width: 100%;
+        min-width: 0;
+        text-align: center;
+        padding: 12px;
+    }
+    .skill-tree {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+    .tree-level {
+        width: 100%;
+        min-width: 0;
+    }
+    .center-node {
+        width: 100%;
+        padding: 0 10px;
+    }
+    .skill-node,
+    .center-node .skill-node,
+    .skill-desc-box {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+    .skill-node {
+        padding: 10px 12px;
+    }
+    .skill-name {
+        font-size: 14px;
+    }
+    .skill-desc-box {
+        padding: 12px;
+        font-size: 12px;
+        line-height: 1.6;
+    }
+    .branch-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        width: 100%;
+        padding: 12px 10px;
+    }
+    .branch-container::before,
+    .branch-container::after,
+    .branch-item::before,
+    .branch-item::after {
+        display: none;
+    }
+    .branch-item,
+    .branch-1 .branch-item,
+    .branch-2 .branch-item,
+    .branch-3 .branch-item {
+        width: 100%;
+        max-width: 100%;
+    }
+    .branch-1,
+    .branch-2,
+    .branch-3 {
+        gap: 10px;
+    }
+    .forbiddenBox {
+        position: static;
+        transform: none;
+        margin-bottom: 10px;
+        font-size: 13px;
+        padding: 10px;
+    }
 }
 
 .badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
 .badge-outline {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: fit-content;
-  font-size: 11px;
-  font-weight: 500;
-  padding: 1px 4px;
-  border-radius: 10px;
-  border: 1px solid #30363d;
-  color: #30363d;
-  background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: fit-content;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 1px 4px;
+    border-radius: 10px;
+    border: 1px solid #30363d;
+    color: #30363d;
+    background: transparent;
 }
 
 .badge-outline .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #3fb950;
-  margin-right: 6px;
-  align-self: center;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3fb950;
+    margin-right: 6px;
+    align-self: center;
 }
 
 .green {
-  background: #3fb950;
+    background: #3fb950;
 }
 
 .blue {
-  background: #58a6ff;
+    background: #58a6ff;
 }
 
 .purple {
-  background: #a371f7;
+    background: #a371f7;
 }
 
 .orange {
-  background: #d29922;
+    background: #d29922;
 }
 
 .pink {
-  background: #db61a2;
+    background: #db61a2;
 }
 
 .df {
-  display: flex;
+    display: flex;
 }
 
 .ac {
-  align-items: center;
+    align-items: center;
 }
 
 .author,
 .helper {
-  margin-left: 6px;
-  font-weight: 400;
-  line-height: 1.2;
-  font-size: 12px;
+    margin-left: 6px;
+    font-weight: 400;
+    line-height: 1.2;
+    font-size: 12px;
 }
 
 .ml-auto {
-  margin-left: auto;
+    margin-left: auto;
 }
 
 .mr-16 {
-  margin-right: 16px;
+    margin-right: 16px;
 }
 
 .name-card-box {
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-  padding: 16px;
-  row-gap: 6px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding: 16px;
+    row-gap: 6px;
 }
 
 .name-card-title {
-  font-size: 600;
-  background-color: #1b64da;
-  color: #f9fafb;
-  font-size: 15px;
-  padding: 2px 4px;
-  text-align: center;
-  vertical-align: center;
-  border: 0 solid transparent;
-  border-radius: 7px;
+    font-size: 600;
+    background-color: #1b64da;
+    color: #f9fafb;
+    font-size: 15px;
+    padding: 2px 4px;
+    text-align: center;
+    vertical-align: center;
+    border: 0 solid transparent;
+    border-radius: 7px;
 }
 
 .name-card-title-helper {
-  font-size: 600;
-  background-color: #ff0066;
-  color: #f9fafb;
-  font-size: 15px;
-  padding: 2px 4px;
-  text-align: center;
-  vertical-align: center;
-  border: 0 solid transparent;
-  border-radius: 7px;
+    font-size: 600;
+    background-color: #ff0066;
+    color: #f9fafb;
+    font-size: 15px;
+    padding: 2px 4px;
+    text-align: center;
+    vertical-align: center;
+    border: 0 solid transparent;
+    border-radius: 7px;
 }
 
 .helper-image {
-  width: 64px;
-  height: 64px;
+    width: 64px;
+    height: 64px;
 }
 
 label {
-  width: 60px;
+    width: 60px;
 }
 
 .job-guide-btn {
-  margin-left: 0;
-  appearance: none;
-  background-color: #3fb950;
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 6px;
-  border: none;
-  outline: 1px solid #3fb950;
-  cursor: pointer;
+    margin-left: 0;
+    appearance: none;
+    background-color: #3fb950;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    outline: 1px solid #3fb950;
+    cursor: pointer;
 }
 
 .job-guide-btn:hover {
-  background-color: green;
-  outline: 1px solid green;
-  transition: all 0.3s ease-in-out;
+    background-color: green;
+    outline: 1px solid green;
+    transition: all 0.3s ease-in-out;
 }
 
 .guide-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
 .guide-modal {
-  width: min(920px, 100%);
-  max-height: 90vh;
-  overflow-y: auto;
-  background: #fff;
-  border-radius: 10px;
-  border: 1px solid #d9d9d9;
-  padding: 18px;
+    width: min(920px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #d9d9d9;
+    padding: 18px;
 }
 
 .guide-modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
 }
 
 .guide-modal-header h2 {
-  font-size: 18px;
-  font-weight: 700;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .guide-close-btn {
-  appearance: none;
-  border: 1px solid #d0d0d0;
-  background: #fff;
-  color: #333;
-  font-size: 13px;
-  border-radius: 6px;
-  padding: 6px 10px;
-  cursor: pointer;
+    appearance: none;
+    border: 1px solid #d0d0d0;
+    background: #fff;
+    color: #333;
+    font-size: 13px;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
 }
 
 .guide-close-btn:hover {
-  background: #f5f5f5;
+    background: #f5f5f5;
 }
 
 .guide-filter-row {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 12px;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
 }
 
 .guide-filter {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .guide-filter label {
-  width: auto;
-  color: #555;
-  font-size: 13px;
+    width: auto;
+    color: #555;
+    font-size: 13px;
 }
 
 .guide-filter select {
-  min-width: 120px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 7px 10px;
-  background: #fff;
-  font-size: 13px;
+    min-width: 120px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 7px 10px;
+    background: #fff;
+    font-size: 13px;
 }
 
 .guide-message {
-  background: #f4f8ff;
-  border: 1px solid #cfe0ff;
-  border-radius: 8px;
-  color: #1f2a44;
-  font-size: 14px;
-  line-height: 1.6;
-  padding: 12px;
-  margin-bottom: 12px;
+    background: #f4f8ff;
+    border: 1px solid #cfe0ff;
+    border-radius: 8px;
+    color: #1f2a44;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 12px;
+    margin-bottom: 12px;
 }
 
 .guide-strategy-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
 }
 
 .guide-strategy-btn {
-  appearance: none;
-  border: 1px solid #b8cdfa;
-  background: #eef4ff;
-  color: #183c8c;
-  border-radius: 999px;
-  padding: 7px 12px;
-  font-size: 12px;
-  line-height: 1.2;
-  cursor: pointer;
+    appearance: none;
+    border: 1px solid #b8cdfa;
+    background: #eef4ff;
+    color: #183c8c;
+    border-radius: 999px;
+    padding: 7px 12px;
+    font-size: 12px;
+    line-height: 1.2;
+    cursor: pointer;
 }
 
 .guide-strategy-btn:hover {
-  background: #dce8ff;
+    background: #dce8ff;
 }
 
 .guide-table-wrap {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow-x: auto;
 }
 
 .guide-table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 .guide-table th,
 .guide-table td {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-  text-align: left;
-  font-size: 13px;
-  line-height: 1.5;
-  vertical-align: top;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    font-size: 13px;
+    line-height: 1.5;
+    vertical-align: top;
 }
 
 .guide-table th {
-  background: #f8f8f8;
-  font-weight: 700;
-  color: #222;
+    background: #f8f8f8;
+    font-weight: 700;
+    color: #222;
 }
 
 .guide-table tbody tr:last-child td {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .guide-footnote {
-  margin-top: 10px;
-  color: #666;
-  font-size: 12px;
-  line-height: 1.5;
-  font-weight: 500;
+    margin-top: 10px;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: 500;
 }
 
 .guide-empty {
-  margin-top: 8px;
-  padding: 12px;
-  background: #f7f7f7;
-  border: 1px dashed #d8d8d8;
-  border-radius: 8px;
-  color: #666;
-  font-size: 13px;
+    margin-top: 8px;
+    padding: 12px;
+    background: #f7f7f7;
+    border: 1px dashed #d8d8d8;
+    border-radius: 8px;
+    color: #666;
+    font-size: 13px;
 }
 
 .h-80 {
-  height: fit-content;
+    height: fit-content;
 }
 
 @media (max-width: 768px) {
-  .guide-modal-backdrop {
-    align-items: flex-end;
-    padding: 0;
-  }
-  .guide-modal {
-    width: 100%;
-    height: 100dvh;
-    max-height: 100dvh;
-    border-radius: 0;
-    border: none;
-    padding: 14px 12px 18px;
-  }
-  .guide-modal-header {
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    background: #fff;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 10px;
-  }
-  .guide-modal-header h2 {
-    font-size: 16px;
-  }
-  .guide-filter-row {
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 10px;
-  }
-  .guide-filter {
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 6px;
-  }
-  .guide-filter select {
-    width: 100%;
-    min-width: 0;
-  }
-  .guide-message {
-    font-size: 13px;
-    padding: 10px;
-  }
-  .guide-strategy-list {
-    margin-bottom: 10px;
-  }
-  .guide-strategy-btn {
-    width: 100%;
-    border-radius: 8px;
-    text-align: left;
-    font-size: 12px;
-  }
-  .guide-table {
-    min-width: 480px;
-  }
-  .guide-table th,
-  .guide-table td {
-    font-size: 12px;
-    padding: 8px;
-  }
-  .guide-empty {
-    font-size: 12px;
-    padding: 10px;
-  }
+    .guide-modal-backdrop {
+        align-items: flex-end;
+        padding: 0;
+    }
+    .guide-modal {
+        width: 100%;
+        height: 100dvh;
+        max-height: 100dvh;
+        border-radius: 0;
+        border: none;
+        padding: 14px 12px 18px;
+    }
+    .guide-modal-header {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: #fff;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 10px;
+    }
+    .guide-modal-header h2 {
+        font-size: 16px;
+    }
+    .guide-filter-row {
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+    .guide-filter {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+    .guide-filter select {
+        width: 100%;
+        min-width: 0;
+    }
+    .guide-message {
+        font-size: 13px;
+        padding: 10px;
+    }
+    .guide-strategy-list {
+        margin-bottom: 10px;
+    }
+    .guide-strategy-btn {
+        width: 100%;
+        border-radius: 8px;
+        text-align: left;
+        font-size: 12px;
+    }
+    .guide-table {
+        min-width: 480px;
+    }
+    .guide-table th,
+    .guide-table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+    .guide-empty {
+        font-size: 12px;
+        padding: 10px;
+    }
 }
 
 .rotateBtn {
-  animation-name: rotateBtn;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-direction: normal;
-  animation-timing-function: linear;
+    animation-name: rotateBtn;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
+}
+
+.rotateReverseBtn {
+    animation-name: rotateReverseBtn;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
 }
 
 @keyframes rotateBtn {
-  from {
-    left: 0;
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        left: 0;
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateReverseBtn {
+    from {
+        left: 0;
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
 }
 
 .rotateX {
-  animation-name: rotateX;
-  animation-duration: 0.2s;
-  animation-iteration-count: infinite;
-  animation-direction: normal;
-  animation-timing-function: linear;
+    animation-name: rotateX;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
 }
 
 @keyframes rotateX {
-  from {
-    left: 0;
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
+    from {
+        left: 0;
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
 }
 
 .b-500 {
-  font-weight: 500;
+    font-weight: 500;
 }
